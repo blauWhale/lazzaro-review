@@ -18,6 +18,11 @@
 ### Mockups
 
 ### Farbkonzept
+- Farbpalette:<br>![alt text](Admin/colorpallet.png )
+- Schrift: Roboto und Domine(Logo)
+- Das Violet soll einen ruhigen und sanften Eindruck hinterlassen. <br>
+- Die Review-Cards stechen mit ihrer weisen Fläche und schwarzem Rand aus. <br> 
+- Optionales wird dem Dunkelgrau in den Hintergrund geschoben.
 
 ### ERM
 ![alt text](Admin/erm.png "ERM")
