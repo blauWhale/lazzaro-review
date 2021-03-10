@@ -16,12 +16,12 @@
 - Detailversessen <br>
 
 ### Mockups
-####Home:<br>![alt text](Admin/Mockup/Home.png )
-####Reviews:<br>![alt text](Admin/Mockup/Review.png )
-####Kontakt:<br>![alt text](Admin/Mockup/Kontakt.png )
-####Impressum:<br>![alt text](Admin/Mockup/Impressum.png )
-####Login:<br>![alt text](Admin/Mockup/Login PopUp.png )
-####Registration:<br>![alt text](Admin/Mockup/Registrieren PopUp.png )
+#### Home:<br>![alt text](Admin/Mockup/Home.png )
+#### Reviews:<br>![alt text](Admin/Mockup/Review.png )
+#### Kontakt:<br>![alt text](Admin/Mockup/Kontakt.png )
+#### Impressum:<br>![alt text](Admin/Mockup/Impressum.png )
+#### Login:<br>![alt text](Admin/Mockup/LoginPopUp.png )
+#### Registration:<br>![alt text](Admin/Mockup/RegistrierenPopUp.png )
 
 
 
