@@ -28,8 +28,8 @@ class UserRepository extends Repository
 
         // Resultat der Abfrage holen
         $result = $statement->get_result();
-        $doesUserExits = $result->num_rows != 0;
+        $doesUserExist = $result->num_rows != 0;
 
-        return $doesUserExits;
+        return $doesUserExist;
     }
 }

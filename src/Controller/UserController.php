@@ -17,8 +17,34 @@ class UserController
         $view = new View('user/index');
         $view->title = 'Benutzer';
         $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
+        $view->otherUser = $userRepository->readAll();
         $view->display();
+    }
+
+    public function login()
+    {
+
+
+        $view = new View('user/login');
+        $view->title = 'Benutzer erstellen';
+        $view->heading = 'Log dich ein';
+        $view->display();
+    }
+
+    public function doLogin(){
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $userRepository = new UserRepository();
+        if ($userRepository->userExits($email, $password)) {
+            header('Location: /');
+            $_SESSION["IsLoggedIn"] = true;
+            echo "password";
+            exit();
+        }
+
+        header('Location: /user/login?login=false');
+        exit();
     }
 
     public function create()
@@ -32,13 +58,12 @@ class UserController
     public function doCreate()
     {
         if (isset($_POST['send'])) {
-            $firstName = $_POST['fname'];
-            $lastName = $_POST['lname'];
+            $username = $_POST['uname'];
             $email = $_POST['email'];
             $password = $_POST['password'];
 
             $userRepository = new UserRepository();
-            $userRepository->create($firstName, $lastName, $email, $password);
+            $userRepository->create($username, $email, $password);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)

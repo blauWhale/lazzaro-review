@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`user` (
     UNIQUE INDEX `email_UNIQUE` (`email` ASC),
     UNIQUE INDEX `username_UNIQUE` (`username` ASC))
     ENGINE = InnoDB;
-
-
+/*INSERT INTO user (email, username, password, moderator) VALUES ('zhajns@bbcag.ch', 'sam36', '1234', '1');
+*/
 -- -----------------------------------------------------
 -- Table `lazzarodb`.`comment`
 -- -----------------------------------------------------
