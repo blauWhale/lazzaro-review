@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="navbar-brand">
-                            <a class="nav-link active" aria-current="page" href="/reviews">Reviews</a>
+                            <a class="nav-link active" aria-current="page" href="/review">Reviews</a>
                         </li>
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/contact">Kontakt</a>
