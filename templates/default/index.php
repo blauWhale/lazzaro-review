@@ -21,7 +21,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Revie name</h5>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago <span class="genre">- House</span></small></p>
                             <p><small class="text-muted">Comment</small> </p>
                         </div>
@@ -142,5 +142,3 @@
         </div>
 
 </main>
-
-</div>
