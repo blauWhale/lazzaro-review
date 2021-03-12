@@ -12,18 +12,17 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago <span class="genre">- House</span></small>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small>
                             </p>
                             <p><small class="text-muted">Comment</small></p>
                         </div>
                         <hr>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
                              alt="..." width="250px" height="250px">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><?= $review->content; ?></p>
 
-                        <p class"Rating"> Lazzaro Rating: 9/10</p>
+                        <p class"Rating"> Lazzaro Rating: <?= $review->rating; ?>/10</p>
 
                         <label for="customRange3" class="form-label">User Rating</label>
                         <input type="range" class="form-range" min="0" max="10" step="1" id="customRange3">
@@ -79,11 +78,9 @@
                     <button id="submitbtn" type="submit" class="btn">Kommentieren</button>
                 </div>
 
-
             </div>
 
 
-        </div>
     </div>
 
     </div>

@@ -21,30 +21,28 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Revie name</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago <span class="genre">- House</span></small></p>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                             <p><small class="text-muted">Comment</small> </p>
                         </div>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
                              class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?= $review->content; ?></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago <span class="genre">- House</span></small></p>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                             <p><small class="text-muted">Comment</small> </p>
                         </div>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
                              class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?= $review->content; ?></p>
                         </div>
                     </div>
                 </div>
@@ -79,28 +77,24 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                         </div>
-                        <img src="..." class="card-img-bottom" alt="...">
+                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?= $review->content; ?></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                         </div>
-                        <img src="..." class="card-img-bottom" alt="...">
+                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?= $review->content; ?></p>
                         </div>
                     </div>
                 </div>
@@ -111,28 +105,24 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                         </div>
-                        <img src="..." class="card-img-bottom" alt="...">
+                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?= $review->content; ?></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                         </div>
-                        <img src="..." class="card-img-bottom" alt="...">
+                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><?= $review->content; ?></p>
                         </div>
                     </div>
                 </div>
