@@ -118,6 +118,8 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`review_has_comment` (
     ON UPDATE NO ACTION)
     ENGINE = InnoDB;
 
+create user if not exists lazzarodb_user identified by '1234';
+grant insert, update, delete, select on lazzarodb.* to 'lazzarodb_user'@'%';
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
