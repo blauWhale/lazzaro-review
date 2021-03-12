@@ -9,7 +9,7 @@ class UserRepository extends Repository
 {
     protected $tableName = "user";
 
-    public function userExits($email, $password)
+    public function userExists($email, $password)
     {
         $query = "SELECT * FROM {$this->tableName} WHERE email=? and password=?";
 

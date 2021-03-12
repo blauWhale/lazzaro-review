@@ -17,7 +17,7 @@ class UserController
         $view = new View('user/index');
         $view->title = 'Benutzer';
         $view->heading = 'Benutzer';
-        $view->otherUser = $userRepository->readAll();
+        $view->user = $userRepository->readAll();
         $view->display();
     }
 
@@ -36,7 +36,7 @@ class UserController
         $password = $_POST["password"];
 
         $userRepository = new UserRepository();
-        if ($userRepository->userExits($email, $password)) {
+        if ($userRepository->userExists($email, $password)) {
             header('Location: /');
             $_SESSION["IsLoggedIn"] = true;
             echo "password";
