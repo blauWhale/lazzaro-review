@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
     <link rel="stylesheet" type="text/css" href="/css/index.css" >
     <link rel="stylesheet" type="text/css" href="/css/review-page.css" >
@@ -28,6 +28,12 @@
                         </li>
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/contact">Kontakt</a>
+                        </li>
+                        <li class="navbar-brand">
+                            <a class="nav-link active" href="/user/login">Login</a>
+                        </li>
+                        <li class="navbar-brand">
+                            <a class="nav-link active" href="/user/create">Registrieren</a>
                         </li>
                     </ul>
                 </div>
