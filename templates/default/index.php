@@ -19,32 +19,18 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $track->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
-                            <p><small class="text-muted">Comment</small> </p>
+                    <?php foreach ($reviews['review'] as $review): ?>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $reviews['track'][$review['track_id']]['trackname']; ?></h5>
+                                <p class="card-text"><small class="text-muted">Erschienen: <?= $reviews['track'][$review['track_id']]['release'] ?>  <span class="genre"><?= $reviews['track'][$review['track_id']]['genre'] ?></span></small></p>
+                            </div>
+                            <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
+                            <div class="card-body">
+                                <p class="card-text"><?= $reviews['review']['content']; ?></p>
+                            </div>
                         </div>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
-                             class="card-img-bottom" alt="...">
-                        <div class="card-body">
-                            <p class="card-text"><?= $review->content; ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $track->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
-                            <p><small class="text-muted">Comment</small> </p>
-                        </div>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
-                             class="card-img-bottom" alt="...">
-                        <div class="card-body">
-                            <p class="card-text"><?= $review->content; ?></p>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="col-md-3">
                     <div class="list-group">
@@ -77,7 +63,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
                             <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                         </div>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
@@ -89,12 +75,12 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $track->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
+                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $tracks->release_year; ?>  <span class="genre"><?= $tracks->genre; ?></span></small></p>
                         </div>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
                         <div class="card-body">
-                            <p class="card-text"><?= $review->content; ?></p>
+                            <p class="card-text"><?= $reviews->content; ?></p>
                         </div>
                     </div>
                 </div>
@@ -105,8 +91,8 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $track->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
+                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
+                            <p class="card-text"><small class="text-muted">Erschienen: <?= $tracks->release_year; ?>  <span class="genre"><?= $tracks->genre; ?></span></small></p>
                         </div>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
                         <div class="card-body">
@@ -117,7 +103,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $track->trackname; ?></h5>
+                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
                             <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
                         </div>
                         <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">

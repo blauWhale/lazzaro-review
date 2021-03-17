@@ -6,47 +6,13 @@ use App\Database\ConnectionHandler;
 use Exception;
 
 
-class ReviewRepository
+class ReviewRepository extends Repository
 {
     protected $tableName = "review";
 
-    public function readById($id)
-    {
-        // Query erstellen
-        $query = "SELECT * FROM {$this->tableName} WHERE id=?";
-
-        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
-        // und die Parameter "binden"
-        $connection = ConnectionHandler::getConnection();
-        $statement = $connection->prepare($query);
-        $statement->bind_param('i', $id);
-
-        if ($statement == false){
-            throw new Exception($connection->error);
-        }
-
-        // Das Statement absetzen
-        $statement->execute();
-
-        // Resultat der Abfrage holen
-        $result = $statement->get_result();
-        if (!$result) {
-            throw new Exception($statement->error);
-        }
-
-        // Ersten Datensatz aus dem Reultat holen
-        $row = $result->fetch_object();
-
-        // Datenbankressourcen wieder freigeben
-        $result->close();
-
-        // Den gefundenen Datensatz zurückgeben
-        return $row;
-    }
-
     public function readAll($max = 100)
     {
-        $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
+        $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id order by r.id DESC LIMIT 0 , $max";
 
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
@@ -62,28 +28,32 @@ class ReviewRepository
         }
 
         // Datensätze aus dem Resultat holen und in das Array $rows speichern
-        $rows = array();
+        $data = array(
+            'track'=>array(),
+            'review'=>array()
+        );
         while ($row = $result->fetch_object()) {
-            $rows[] = $row;
+            $data ['review'] [] = array(
+                'id'=>$row->review_id,
+                'rating'=>$row->rating,
+                'content'=>$row->content,
+                'user_id'=>$row->user_id,
+                'track_id'=>$row->track_id
+
+            );
+            if(!array_key_exists($row->t_id, $data['track'])){
+                $data ['track'] [$row->t_id] = array(
+                    'id'=>$row->t_id,
+                    'trackname'=>$row->trackname,
+                    'producer_name'=>$row->producer_name,
+                    'artist_name'=>$row->artist_name,
+                    'genre'=>$row->genre,
+                    'release'=>$row->release_year
+
+                );
+            }
         }
 
-        return $rows;
-    }
-
-    public function deleteById($id)
-    {
-        $query = "DELETE FROM {$this->tableName} WHERE id=?";
-
-        $connection = ConnectionHandler::getConnection();
-        $statement = $connection->prepare($query);
-        $statement->bind_param('i', $id);
-
-        if ($statement == false){
-            throw new Exception($connection->error);
-        }
-
-        if (!$statement->execute()) {
-            throw new Exception($statement->error);
-        }
+        return $data;
     }
 }

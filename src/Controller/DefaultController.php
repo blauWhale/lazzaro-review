@@ -34,13 +34,11 @@ class DefaultController
     public function index()
     {
         $reviewRepository = new ReviewRepository();
-        $trackRepository = new TrackRepository();
 
         $view = new View('default/index');
         $view->title = 'Startseite';
         $view->heading = 'Startseite';
-        $view->track = $trackRepository->readById(1);
-        $view->review = $reviewRepository->readById(3);
+        $view->reviews = $reviewRepository->readAll();
         $view->display();
     }
 }
