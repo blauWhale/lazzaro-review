@@ -18,102 +18,57 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <?php foreach ($reviews['review'] as $review): ?>
+
+                <?php foreach ($reviews['review'] as $review): ?>
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $reviews['track'][$review['track_id']]['trackname']; ?></h5>
-                                <p class="card-text"><small class="text-muted">Erschienen: <?= $reviews['track'][$review['track_id']]['release'] ?>  <span class="genre"><?= $reviews['track'][$review['track_id']]['genre'] ?></span></small></p>
+                                <a href="/review">
+                                <h5 class="card-title">
+                                    <?= $reviews['track'][$review['track_id']]['trackname']; ?>
+                                </h5>
+                                </a>
+                                <p class="card-text"><small
+                                            class="text-muted">Erschienen: <?= $reviews['track'][$review['track_id']]['release'] ?>
+                                        <span class="genre"><?= $reviews['track'][$review['track_id']]['genre'] ?></span></small>
+                                </p>
                             </div>
-                            <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
+                            <a href="/review">
+
+                            <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
+                                 class="card-img-bottom" alt="...">
+                            </a>
                             <div class="card-body">
-                                <p class="card-text"><?= $reviews['review']['content']; ?></p>
+                                <p class="card-text"><?= $review['content']; ?></p>
                             </div>
                         </div>
-                    <?php endforeach; ?>
-                </div>
-                <div class="col-md-3">
+                    </div>
+                <?php endforeach; ?>
+
+                <div class="col-md-3" >
                     <div class="list-group">
                         <h5>Genre</h5>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            EDM
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">Pop</a>
-                        <a href="#" class="list-group-item list-group-item-action">Hip Hop</a>
-                        <a href="#" class="list-group-item list-group-item-action">Rock</a>
+                        <?php foreach ($reviews['review'] as $review): ?>
+                            <?php ?>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <?= $reviews['track'][$review['track_id']]['genre'] ?>
+                            </a>
+                        <?php ?>
+                        <?php endforeach; ?>
+                        <br>
 
                         <h5>Jahr</h5>
+                        <?php foreach ($reviews['review'] as $review): ?>
                         <a href="#" class="list-group-item list-group-item-action">
-                            2021
+                            <?= $reviews['track'][$review['track_id']]['release'] ?>
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">2020</a>
-                        <a href="#" class="list-group-item list-group-item-action">2002</a>
-                        <a href="#" class="list-group-item list-group-item-action">1981</a>
+                        <?php endforeach; ?>
                     </div>
 
-                </div>
-
-
-
-
-
-            </div>
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
-                        </div>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
-                        <div class="card-body">
-                            <p class="card-text"><?= $review->content; ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $tracks->release_year; ?>  <span class="genre"><?= $tracks->genre; ?></span></small></p>
-                        </div>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
-                        <div class="card-body">
-                            <p class="card-text"><?= $reviews->content; ?></p>
-                        </div>
-                    </div>
                 </div>
 
             </div>
-            <div class="row">
 
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $tracks->release_year; ?>  <span class="genre"><?= $tracks->genre; ?></span></small></p>
-                        </div>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
-                        <div class="card-body">
-                            <p class="card-text"><?= $review->content; ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $tracks->trackname; ?></h5>
-                            <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>  <span class="genre"><?= $track->genre; ?></span></small></p>
-                        </div>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png" class="card-img-bottom" alt="...">
-                        <div class="card-body">
-                            <p class="card-text"><?= $review->content; ?></p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
         </div>
 

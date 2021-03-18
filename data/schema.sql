@@ -132,6 +132,7 @@ INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_nam
 
 INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('1', '7', 'Super Sach da mit dem Album', '1', '2');
 INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('2', '3', 'Echt ned eso guet', '2', '2');
+INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('3', '5', 'ganz okay das ganze', '1', '1');
 
 INSERT INTO `lazzarodb`.`comment` (`id`, `content`, `date`, `user_id`) VALUES ('1', 'echt en coole review wirkli', '2005-04-16 18:26:53', '1');
 INSERT INTO `lazzarodb`.`comment` (`id`, `content`, `date`, `user_id`) VALUES ('2', 'findi jetzt gar ned aber okay...', '2011-09-16 15:37:22', '2');

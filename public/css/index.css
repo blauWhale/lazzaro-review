@@ -17,10 +17,23 @@ body {
 
 }
 .card {
-    border: transparent;
+    border-style: solid;
 }
 
 .genre {
     color: #9581FC;
 }
 
+#filter{
+    float:right;
+}
+
+a {
+    text-decoration: none;
+    color: #707070;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #9581FC;
+}
