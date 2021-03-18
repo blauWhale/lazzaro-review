@@ -55,7 +55,7 @@ class UserController
     public function doCreate()
     {
         if (isset($_POST['send'])) {
-            $username = $_POST['uname'];
+            $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
 

@@ -1,8 +1,8 @@
 <div class="row">
 	<form action="/user/doCreate" method="post" class="col-6">
 		<div class="form-group">
-		  <label for="uname">Username</label>
-	  	<input id="uname" name="uname" type="text" class="form-control">
+		  <label for="username">Username</label>
+	  	<input id="username" name="username" type="text" class="form-control">
 		</div>
 		<div class="form-group">
 		  <label for="email">Mail</label>

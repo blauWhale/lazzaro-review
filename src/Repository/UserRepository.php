@@ -66,8 +66,8 @@ class UserRepository extends Repository
 
         $connection = ConnectionHandler::getConnection();
 
-        if (!isset($_POST['username'], $_POST['password'], $_POST['email'])) {
-            exit('Bitte alle Felder ausfüllen!');
+        if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['email'])) {
+            exit('Die Daten konnten nicht abgesendet werden!');
         }
         if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
             exit('Bitte alle Felder ausfüllen!');
@@ -95,7 +95,6 @@ class UserRepository extends Repository
             } else {
 
                 if ($statement = $connection->prepare($query2)) {
-
                     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                     $statement->bind_param('sss', $_POST['username'], $password, $_POST['email']);
                     $statement->execute();
