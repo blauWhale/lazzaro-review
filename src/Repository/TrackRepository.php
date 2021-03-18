@@ -87,4 +87,41 @@ class TrackRepository
             throw new Exception($statement->error);
         }
     }
+
+    public function create($trackname, $producer_name, $artist_name, $genre, $release_year){
+
+        $query  = "INSERT INTO {$this ->tableName} (trackname, producer_name, artist_name, genre, release_year) VALUES (?, ?, ?, ?, ?)";
+
+        $connection = ConnectionHandler::getConnection();
+
+        if (!isset($_POST['trackname']) || !isset($_POST['producer_name']) || !isset($_POST['artist_name']) || !isset($_POST['genre']) || !isset($_POST['release_year'])) {
+            exit('Die Daten konnten nicht abgesendet werden!');
+        }
+        if (empty($_POST['trackname']) || empty($_POST['producer_name']) || empty($_POST['artist_name']) || empty($_POST['genre']) || empty($_POST['release_year'])) {
+            exit('Bitte alle Felder ausfüllen!');
+        }
+
+        /*if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            exit('Email ungültig!');
+        }
+
+        if (preg_match('/^[a-zA-Z0-9]{3,25}+$/', $_POST['username']) == 0) {
+            exit('Username ungültig!');
+        }
+
+        if (strlen($_POST['password']) > 20 || strlen($_POST['password']) < 3) {
+            exit('Passwort muss mindestens 3 Zeichen und maximal 20 Zeichen lang sein!');
+        }
+        */
+
+
+        if ($statement = $connection->prepare($query)) {
+            $statement->bind_param('sssss', $_POST['trackname'], $_POST['producer_name'], $_POST['artist_name'], $_POST['genre'] , $_POST['release_year'] );
+            $statement->execute();
+            echo 'Track erstellt!';
+        }
+
+        $statement->close();
+        $connection->close();
+    }
 }

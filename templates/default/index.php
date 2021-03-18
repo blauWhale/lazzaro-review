@@ -37,7 +37,7 @@
                             </div>
                             <a href="<?= $detailLink ?>">
 
-                            <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
+                            <img src="images/boston_albumcover.png"
                                  class="card-img-bottom" alt="...">
                             </a>
                             <div class="card-body">

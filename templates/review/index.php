@@ -18,7 +18,7 @@
                             <p><small class="text-muted">Comment</small></p>
                         </div>
                         <hr>
-                        <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
+                        <img src="images/boston_albumcover.png"
                              alt="..." width="250px" height="250px">
                         <p class="card-text"><?= $review->content; ?></p>
 
