@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`user` (
                                                   `email` VARCHAR(128) NOT NULL,
     `username` VARCHAR(64) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
-    `moderator` TINYINT NOT NULL,
+    `moderator` TINYINT NOT NULL DEFAULT '0',
     PRIMARY KEY (`id`),
     UNIQUE INDEX `email_UNIQUE` (`email` ASC),
     UNIQUE INDEX `username_UNIQUE` (`username` ASC))
