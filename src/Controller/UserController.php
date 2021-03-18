@@ -17,14 +17,12 @@ class UserController
         $view = new View('user/index');
         $view->title = 'Benutzer';
         $view->heading = 'Benutzer';
-        $view->user = $userRepository->readAll();
+        $view->users = $userRepository->readAll();
         $view->display();
     }
 
     public function login()
     {
-
-
         $view = new View('user/login');
         $view->title = 'Benutzer erstellen';
         $view->heading = 'Log dich ein';
@@ -34,7 +32,6 @@ class UserController
     public function doLogin(){
         $email = $_POST["email"];
         $password = $_POST["password"];
-
         $userRepository = new UserRepository();
         if ($userRepository->userExists($email, $password)) {
             header('Location: /');

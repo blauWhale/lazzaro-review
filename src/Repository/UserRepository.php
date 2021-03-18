@@ -32,4 +32,35 @@ class UserRepository extends Repository
 
         return $doesUserExist;
     }
+
+    public function readAll($max = 100)
+    {
+        $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
+
+        $connection = ConnectionHandler::getConnection();
+        $statement = $connection->prepare($query);
+        $statement->execute();
+
+        if ($statement == false){
+            throw new Exception($connection->error);
+        }
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
+    }
+
+    public function create($username, $email, $password){
+        
+    }
+
 }
