@@ -13,14 +13,21 @@ class ReviewController
         $reviewRepository = new ReviewRepository();
         $trackRepository = new TrackRepository();
 
+        if(!isset($_GET['id']) || !$_GET['id'] || !is_numeric($_GET['id'])){
+            header("Location: /");
+        }
+
+        $id = intval($_GET['id']);
+
+
         // In diesem Fall möchten wir dem Benutzer die View mit dem Namen
         //   "default_index" rendern. Wie das genau funktioniert, ist in der
         //   View Klasse beschrieben.
         $view = new View('review/index');
         $view->title = 'Reviews';
         $view->heading = 'Reviews';
-        $view->track = $trackRepository->readById(1);
-        $view->review = $reviewRepository->readById(3);
+        $view->review = $reviewRepository->readById($id);
+        $view->track = $trackRepository->readById($view->review->track_id);
         $view->display();
     }
 }

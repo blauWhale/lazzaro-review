@@ -18,12 +18,14 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-4">
+                <?php foreach ($reviews['review'] as $review):
 
-                <?php foreach ($reviews['review'] as $review): ?>
-                    <div class="col-md-4">
+                    $detailLink = "/review?id=" . $review['id'] ;
+                    ?>
                         <div class="card">
                             <div class="card-body">
-                                <a href="/review">
+                                <a href="<?= $detailLink ?>">
                                 <h5 class="card-title">
                                     <?= $reviews['track'][$review['track_id']]['trackname']; ?>
                                 </h5>
@@ -33,7 +35,7 @@
                                         <span class="genre"><?= $reviews['track'][$review['track_id']]['genre'] ?></span></small>
                                 </p>
                             </div>
-                            <a href="/review">
+                            <a href="<?= $detailLink ?>">
 
                             <img src="https://i.pinimg.com/originals/a4/0d/a5/a40da5f4387ea79b17cbfd7b0f5e74f4.png"
                                  class="card-img-bottom" alt="...">
@@ -42,9 +44,9 @@
                                 <p class="card-text"><?= $review['content']; ?></p>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
 
+                <?php endforeach; ?>
+                </div>
                 <div class="col-md-3" >
                     <div class="list-group">
                         <h5>Genre</h5>
