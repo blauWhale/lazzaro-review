@@ -17,25 +17,33 @@
                                     <span class="genre"><?= $track->genre; ?></span></small>
                             </p>
                             <p><small class="text-muted">Comment</small></p>
-                            <?php if (isset($_SESSION["user"]) && $_SESSION["user"]->moderator) { ?>
-                                <form action="/review/doDelete" method="post">
-                                    <button type="submit" class="btn btn-primary" name="delete_review">Review löschen</button>
-                                    <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
-                                </form>
-                                <br>
-                                <form action="/review/update" method="post">
-                                    <button type="submit" class="btn btn-primary" name="update_review">Review bearbeiten</button>
-                                    <input type="hidden" id="track_id" name="track_id" value="<?= $review->id; ?>">
-                                </form>
-                            <?php } ?>
                         </div>
                         <hr>
                         <img src="images/boston_albumcover.png"
                              alt="..." width="250px" height="250px">
-                        <p class="card-text"><?= $review->content; ?></p>
+
+                        <h3>Dein Änderungen</h3>
+
+                        <h4>Gib hier den neuen Reviewtext ein:</h4>
+                        <br>
+                        <form action="/review/doUpdate" method="post">
+                            <div class="form-group">
+                                <label for="content" class="form-label">content</label>
+                                <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+                            </div>
+
+                            <h4>Gib hier das neue Rating x/10 ein:</h4>
+                            <br>
+                            <div class="form-group">
+                                <label for="rating">rating</label>
+                                <input id="rating" name="rating" type="text" class="form-control">
+                            </div>
+                            <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
+                            <br>
+                            <button type="submit" class="btn btn-primary" name="doUpdate_review">Review bearbeiten</button>
+                        </form>
 
 
-                        <p class"Rating"> Lazzaro Rating: <?= $review->rating; ?>/10</p>
 
                         <label for="customRange3" class="form-label">User Rating</label>
                         <input type="range" class="form-range" min="0" max="10" step="1" id="customRange3">

@@ -109,4 +109,43 @@ class ReviewController
         header('Location: /review');
     }
 
+    public function doDelete()
+    {
+
+        if (isset($_POST['delete_review'])) {
+                $id = $_POST['review_id'];
+                $reviewRepository = new ReviewRepository();
+                $reviewRepository->deleteById($id);
+                header('Location: /review/delete');
+            }
+    }
+
+    public function delete()
+    {
+
+        $view = new View('review/delete');
+        $view->title = 'Review gelöscht';
+        $view->heading = 'Review gelöscht';
+        $view->display();
+    }
+
+
+    public function doUpdate()
+    {
+
+        if (isset($_POST['doUpdate_review'])) {
+            $id = $_POST['review_id'];
+            $reviewRepository = new ReviewRepository();
+            $reviewRepository->updateById($id);
+            header('Location: /review/');
+        }
+    }
+
+    public function update()
+    {
+        if (isset($_POST['update_review'])) {
+            //TODO Set variable to true and let user update review
+        }
+    }
+
 }

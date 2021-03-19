@@ -63,9 +63,6 @@ class ReviewRepository extends Repository
 
         $connection = ConnectionHandler::getConnection();
 
-
-
-
                 if ($statement = $connection->prepare($query)) {
                     $statement->bind_param('isii', $rating, $content, $user_id, $track_id );
                     $statement->execute();
@@ -73,5 +70,20 @@ class ReviewRepository extends Repository
 
             $statement->close();
             $connection->close();
+    }
+
+    public function updateById($rating, $content, $review_id){
+
+        $query  = "UPDATE {$this ->tableName} set rating =$rating content =$content) WHERE $review_id=?";
+
+        $connection = ConnectionHandler::getConnection();
+
+        if ($statement = $connection->prepare($query)) {
+            $statement->bind_param('i', $review_id);
+            $statement->execute();
+        }
+
+        $statement->close();
+        $connection->close();
     }
 }
