@@ -6,6 +6,7 @@
         </div>
     </section>
 
+
     <div class="main-content">
         <div class="container">
             <div class="row">
@@ -19,27 +20,29 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body" id="kontaktformular">
-                            <h5 class="card-title">Unser Kontaktformular:</h5>
-                            <input class="form-control" list="datalistOptions"
-                                   placeholder="Vorname">
+                    <form action="/contact/sendForm" method="post">
+                        <div class="card">
+                            <div class="card-body" id="kontaktformular">
+                                <h5 class="card-title">Unser Kontaktformular:</h5>
+                                <input class="form-control" list="datalistOptions" name="vorname"
+                                       placeholder="Vorname" required>
+                            </div>
+                            <div class="card-body">
+                                <input class="form-control" list="datalistOptions" name="nachname"
+                                       placeholder="Nachname" required>
+                            </div>
+                            <div class="card-body">
+                                <input class="form-control" list="datalistOptions" name="email"
+                                       placeholder="E-Mail" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="msg" cols="30" rows="5" class="form-control" style="background-color: white;" placeholder="Deine Nachricht:" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary">Absenden</button>
                         </div>
-
-                        <div class="card-body">
-                            <input class="form-control" list="datalistOptions"
-                                   placeholder="Nachname">
-                        </div>
-                        <div class="card-body">
-                            <input class="form-control" list="datalistOptions"
-                                   placeholder="E-Mail">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="msg" id="" msg cols="30" rows="5" class="form-control" style="background-color: white;" placeholder="Deine Nachricht:"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-outline-primary">Absenden</button>
-                    </div>
+                    </form>
                 </div>
+
                 <div class="col-md-3">
                     <div class="list-group">
                         <h5>Unsere Adresse</h5>

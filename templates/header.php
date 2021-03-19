@@ -13,7 +13,6 @@
     <title><?= $title; ?> | Home</title>
   </head>
   <body>
-  <?php if (isset($_SESSION["IsLoggedIn"])) { ?>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
             <div class="container-fluid">
@@ -29,36 +28,21 @@
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/contact">Kontakt</a>
                         </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-  <?php }else {?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/default">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="navbar-brand">
-                            <a class="nav-link active" aria-current="page" href="/review">Reviews</a>
-                        </li>
-                        <li class="navbar-brand">
-                            <a class="nav-link active" href="/contact">Kontakt</a>
-                        </li>
+                        <?php if (!isset($_SESSION["IsLoggedIn"])) { ?>
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/user/login">Login</a>
                         </li>
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/user/create">Registrieren</a>
                         </li>
+                        <?php }?>
+                        <li class="navbar-brand">
+                            <a class="nav-link active" href="/review/create">Review Erstellen</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-  <?php  }?>
     <main class="container">
       <h1><?= $heading; ?></h1>

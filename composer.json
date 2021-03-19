@@ -3,7 +3,9 @@
   "description": "PHP mvc der bbcag.ch",
   "type": "project",
   "minimum-stability": "dev",
-  "require": {},
+  "require": {
+    "phpmailer/phpmailer": "dev-master"
+  },
   "autoload": {
     "psr-4": {
       "App\\":"src/"
