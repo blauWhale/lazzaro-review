@@ -29,14 +29,17 @@ class UserController
         $view->display();
     }
 
-    public function doLogin(){
+    public function doLogin()
+    {
         $email = $_POST["email"];
         $password = $_POST["password"];
         $userRepository = new UserRepository();
-        if ($userRepository->userExists($email, $password)) {
-            header('Location: /');
+        $user = $userRepository->login($email, $password);
+
+        if (isset($user)) {
             $_SESSION["IsLoggedIn"] = true;
-            echo "password";
+            $_SESSION['user'] = $user;
+            header('Location: /');
             exit();
         }
 

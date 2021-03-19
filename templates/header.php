@@ -35,10 +35,13 @@
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/user/create">Registrieren</a>
                         </li>
-                        <?php }?>
+                        <?php
+                        }
+                        if (isset($_SESSION["user"]) && $_SESSION["user"]->moderator) { ?>
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/review/create">Review Erstellen</a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

@@ -9,15 +9,15 @@ class UserRepository extends Repository
 {
     protected $tableName = "user";
 
-    public function userExists($email, $password)
+    public function login($email, $password)
     {
-        $query = "SELECT * FROM {$this->tableName} WHERE email=? and password=?";
+        $query = "SELECT * FROM {$this->tableName} WHERE email=?";
 
         // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
         // und die Parameter "binden"
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
-        $statement->bind_param('ss', $email, $password);
+        $statement->bind_param('s', $email);
 
         if ($statement == false){
             throw new Exception($connection->error);
@@ -28,9 +28,13 @@ class UserRepository extends Repository
 
         // Resultat der Abfrage holen
         $result = $statement->get_result();
-        $doesUserExist = $result->num_rows != 0;
+        if($result->num_rows > 0){
+            $user = $result->fetch_object();
 
-        return $doesUserExist;
+            if(password_verify($password, $user->password)){
+                return $user;
+            }
+        }
     }
 
     public function readAll($max = 100)
