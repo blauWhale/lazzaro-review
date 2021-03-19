@@ -70,25 +70,6 @@ class UserRepository extends Repository
 
         $connection = ConnectionHandler::getConnection();
 
-        if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['email'])) {
-            exit('Die Daten konnten nicht abgesendet werden!');
-        }
-        if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
-            exit('Bitte alle Felder ausfüllen!');
-        }
-
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            exit('Email ungültig!');
-        }
-
-        if (preg_match('/^[a-zA-Z0-9]{3,25}+$/', $_POST['username']) == 0) {
-            exit('Username ungültig!');
-        }
-
-        if (strlen($_POST['password']) > 20 || strlen($_POST['password']) < 3) {
-            exit('Passwort muss mindestens 3 Zeichen und maximal 20 Zeichen lang sein!');
-        }
-
         if ($statement = $connection->prepare($query)) {
             $statement->bind_param('s', $_POST['username']);
             $statement->execute();

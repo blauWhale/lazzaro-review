@@ -6,7 +6,6 @@
         </div>
     </section>
 
-
     <div class="main-content">
         <div class="container">
             <div class="row">
@@ -38,7 +37,7 @@
                             <div class="form-group">
                                 <textarea name="msg" cols="30" rows="5" class="form-control" style="background-color: white;" placeholder="Deine Nachricht:" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary">Absenden</button>
+                            <button type="submit" name="sendMail" class="btn btn-outline-primary">Absenden</button>
                         </div>
                     </form>
                 </div>
