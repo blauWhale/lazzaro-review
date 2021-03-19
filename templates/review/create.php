@@ -20,10 +20,7 @@
             <textarea class="form-control" id="content" name="content" rows="4"></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="user_id">user_id</label>
-            <input id="user_id" name="user_id" type="text" class="form-control">
-        </div>
+        <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">
 
         <br>
         <button type="submit" name="createReview" class="btn btn-primary">Review erstellen</button>
@@ -52,7 +49,8 @@
             <input id="release_year" name="release_year" type="date" class="form-control">
         </div><br>
         Select image to upload:<br><br>
-        <input type="file" name="fileToUpload" id="fileToUpload"><br>
+        <input type="file" name="fileToUpload" id="fileToUpload"></label>
+        <br>
         <br>
         <button type="submit" name="createTrack" class="btn btn-primary">Track anlegen</button>
     </form>

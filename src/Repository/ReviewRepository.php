@@ -63,31 +63,12 @@ class ReviewRepository extends Repository
 
         $connection = ConnectionHandler::getConnection();
 
-        if (!isset($_POST['rating']) || !isset($_POST['content']) || !isset($_POST['user_id']) || !isset($_POST['trackOption'])) {
-            exit('Die Daten konnten nicht abgesendet werden!');
-        }
-        if (empty($_POST['rating']) || empty($_POST['content']) || empty($_POST['user_id']) || !isset($_POST['trackOption'])) {
-            exit('Bitte alle Felder ausfüllen!');
-        }
 
-        /*if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            exit('Email ungültig!');
-        }
-
-        if (preg_match('/^[a-zA-Z0-9]{3,25}+$/', $_POST['username']) == 0) {
-            exit('Username ungültig!');
-        }
-
-        if (strlen($_POST['password']) > 20 || strlen($_POST['password']) < 3) {
-            exit('Passwort muss mindestens 3 Zeichen und maximal 20 Zeichen lang sein!');
-        }
-        */
 
 
                 if ($statement = $connection->prepare($query)) {
-                    $statement->bind_param('isii', $_POST['rating'], $_POST['content'], $_POST['user_id'], $_POST['trackOption'] );
+                    $statement->bind_param('isii', $rating, $content, $user_id, $track_id );
                     $statement->execute();
-                    echo 'Review erstellet!';
                 }
 
             $statement->close();
