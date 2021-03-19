@@ -63,10 +63,10 @@ class ReviewRepository extends Repository
 
         $connection = ConnectionHandler::getConnection();
 
-        if (!isset($_POST['rating']) || !isset($_POST['content']) || !isset($_POST['user_id']) || !isset($_POST['track_id'])) {
+        if (!isset($_POST['rating']) || !isset($_POST['content']) || !isset($_POST['user_id']) || !isset($_POST['trackOption'])) {
             exit('Die Daten konnten nicht abgesendet werden!');
         }
-        if (empty($_POST['rating']) || empty($_POST['content']) || empty($_POST['user_id']) || !isset($_POST['track_id'])) {
+        if (empty($_POST['rating']) || empty($_POST['content']) || empty($_POST['user_id']) || !isset($_POST['trackOption'])) {
             exit('Bitte alle Felder ausfüllen!');
         }
 
@@ -85,7 +85,7 @@ class ReviewRepository extends Repository
 
 
                 if ($statement = $connection->prepare($query)) {
-                    $statement->bind_param('isii', $_POST['rating'], $_POST['content'], $_POST['user_id'], $_POST['track_id'] );
+                    $statement->bind_param('isii', $_POST['rating'], $_POST['content'], $_POST['user_id'], $_POST['trackOption'] );
                     $statement->execute();
                     echo 'Review erstellet!';
                 }
