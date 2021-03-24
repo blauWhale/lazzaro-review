@@ -16,7 +16,6 @@
                             <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>
                                     <span class="genre"><?= $track->genre; ?></span></small>
                             </p>
-                            <p><small class="text-muted">Comment</small></p>
                         </div>
                         <hr>
                         <img src="images/boston_albumcover.png"
@@ -40,17 +39,9 @@
                             </div>
                             <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
                             <br>
-                            <button type="submit" class="btn btn-primary" name="doUpdate_review">Review bearbeiten</button>
+                            <button type="submit" class="btn btn-primary" name="doUpdate_review">Review anpassen</button>
                         </form>
 
-
-
-                        <label for="customRange3" class="form-label">User Rating</label>
-                        <input type="range" class="form-range" min="0" max="10" step="1" id="customRange3">
-
-                        <a id="sharebutton" class="btn" href="" role="button">Share</a>
-
-                        <p class="tags">Tags: Rock</p>
 
                     </div>
                 </div>
@@ -79,29 +70,6 @@
 
                 </div>
             </div>
-            <h2>Kommentare (1)</h2>
-            <div class="row">
-                <div class="col-md-8">
-                    <h5>musikhörer55</h5>
-                    <p class="card-text"><small class="text-muted">12/03/2021 - 09:31</small>
-                    </p>
-                    <p>Lorem Ipsum und so</p>
-
-                    <p><small class="text-muted">Comment</small></p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here"
-                                  id="floatingTextarea"></textarea>
-                    </div>
-                    <button id="submitbtn" type="submit" class="btn">Kommentieren</button>
-                </div>
-
-            </div>
-
 
         </div>
 

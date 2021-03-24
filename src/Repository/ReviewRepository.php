@@ -74,12 +74,12 @@ class ReviewRepository extends Repository
 
     public function updateById($rating, $content, $review_id){
 
-        $query  = "UPDATE {$this ->tableName} set rating =$rating content =$content) WHERE $review_id=?";
+        $query  = "UPDATE {$this ->tableName} set rating = ?, content = ? WHERE id=?";
 
         $connection = ConnectionHandler::getConnection();
 
         if ($statement = $connection->prepare($query)) {
-            $statement->bind_param('i', $review_id);
+            $statement->bind_param('isi', $rating, $content, $review_id );
             $statement->execute();
         }
 

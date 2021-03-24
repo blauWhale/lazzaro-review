@@ -25,7 +25,7 @@
                                 <br>
                                 <form action="/review/update" method="post">
                                     <button type="submit" class="btn btn-primary" name="update_review">Review bearbeiten</button>
-                                    <input type="hidden" id="track_id" name="track_id" value="<?= $review->id; ?>">
+                                    <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
                                 </form>
                             <?php } ?>
                         </div>

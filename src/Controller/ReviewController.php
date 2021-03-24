@@ -133,19 +133,31 @@ class ReviewController
     public function doUpdate()
     {
 
+
         if (isset($_POST['doUpdate_review'])) {
             $id = $_POST['review_id'];
+            $rating = $_POST['rating'];
+            $content = $_POST['content'];
             $reviewRepository = new ReviewRepository();
-            $reviewRepository->updateById($id);
+            $reviewRepository->updateById($rating, $content, $id);
             header('Location: /review/');
         }
     }
 
     public function update()
     {
-        if (isset($_POST['update_review'])) {
-            //TODO Set variable to true and let user update review
-        }
+        $reviewRepository = new ReviewRepository();
+        $trackRepository = new TrackRepository();
+
+        $id = intval($_POST['review_id']);
+
+
+        $view = new View('review/update');
+        $view->title = 'Review bearbeiten';
+        $view->heading = 'Review bearbeiten';
+        $view->review = $reviewRepository->readById($id);
+        $view->track = $trackRepository->readById($view->review->track_id);
+        $view->display();
     }
 
 }
