@@ -4,7 +4,8 @@
   "type": "project",
   "minimum-stability": "dev",
   "require": {
-    "phpmailer/phpmailer": "dev-master"
+    "phpmailer/phpmailer": "dev-master",
+    "ext-mysqli": "*"
   },
   "autoload": {
     "psr-4": {

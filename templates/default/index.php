@@ -12,7 +12,7 @@
                 <div class="col-md-8" id="page-title">
                     <h4>Reviews</h4>
                 </div>
-                <form action="/default/doSearch" method="post">
+                <form action="/default/search" method="post">
                     <div class="col-md-3">
                         <input class="form-control" list="datalistOptions" name="search"
                                placeholder="Type to search...">

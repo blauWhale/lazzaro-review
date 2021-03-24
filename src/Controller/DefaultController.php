@@ -46,11 +46,13 @@ class DefaultController
         $view = new View('default/search');
         $view->title = 'Suchen';
         $view->heading = 'Suchen';
+        $searchTerm= $_POST['search'];
+        $reviewRepository = new ReviewRepository();
+        $view->reviews = $reviewRepository->search($searchTerm);
         $view->display();
     }
 
     public function doSearch(){
-        $searchRepository = new ReviewRepository();
-        $searchRepository->search();
+
     }
 }

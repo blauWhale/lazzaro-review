@@ -188,5 +188,4 @@ class ReviewController
         header("Location: " . $detailLink);
 
     }
-
 }
