@@ -41,11 +41,18 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`comment` (
                                                      `content` LONGTEXT NOT NULL,
                                                      `date` DATETIME NOT NULL,
                                                      `user_id` INT NOT NULL,
+                                                     `review_id` INT NOT NULL,
                                                      PRIMARY KEY (`id`),
-    INDEX `fk_comment_user1_idx` (`user_id` ASC),
+    INDEX `fk_comment_user1_idx` (`user_id` ASC) ,
+    INDEX `fk_comment_review1_idx` (`review_id` ASC) ,
     CONSTRAINT `fk_comment_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `lazzarodb`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `fk_comment_review1`
+    FOREIGN KEY (`review_id`)
+    REFERENCES `lazzarodb`.`review` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
     ENGINE = InnoDB
@@ -58,25 +65,25 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`comment` (
 DROP TABLE IF EXISTS `lazzarodb`.`review` ;
 
 CREATE TABLE IF NOT EXISTS `lazzarodb`.`review` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `rating` INT NOT NULL,
-  `content` LONGTEXT NOT NULL,
-  `user_id` INT NOT NULL,
-  `track_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_review_user1_idx` (`user_id` ASC) ,
-  INDEX `fk_review_track1_idx` (`track_id` ASC) ,
-  CONSTRAINT `fk_review_user1`
+                                                    `id` INT NOT NULL AUTO_INCREMENT,
+                                                    `rating` INT NOT NULL,
+                                                    `content` LONGTEXT NOT NULL,
+                                                    `user_id` INT NOT NULL,
+                                                    `track_id` INT NOT NULL,
+                                                    PRIMARY KEY (`id`),
+    INDEX `fk_review_user1_idx` (`user_id` ASC) ,
+    INDEX `fk_review_track1_idx` (`track_id` ASC) ,
+    CONSTRAINT `fk_review_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `lazzarodb`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_review_track1`
+    CONSTRAINT `fk_review_track1`
     FOREIGN KEY (`track_id`)
     REFERENCES `lazzarodb`.`track` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -85,38 +92,17 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `lazzarodb`.`track` ;
 
 CREATE TABLE IF NOT EXISTS `lazzarodb`.`track` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `trackname` VARCHAR(128) NOT NULL,
-  `producer_name` VARCHAR(45) NOT NULL,
-  `artist_name` VARCHAR(64) NOT NULL,
-  `genre` VARCHAR(50) NOT NULL,
-  `release_year` DATE NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `lazzarodb`.`review_has_comment`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `lazzarodb`.`review_has_comment` ;
-
-CREATE TABLE IF NOT EXISTS `lazzarodb`.`review_has_comment` (
-                                                                `review_id` INT NOT NULL,
-                                                                `comment_id` INT NOT NULL,
-                                                                PRIMARY KEY (`review_id`, `comment_id`),
-    INDEX `fk_review_has_comment_comment1_idx` (`comment_id` ASC) ,
-    INDEX `fk_review_has_comment_review1_idx` (`review_id` ASC) ,
-    CONSTRAINT `fk_review_has_comment_review1`
-    FOREIGN KEY (`review_id`)
-    REFERENCES `lazzarodb`.`review` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    CONSTRAINT `fk_review_has_comment_comment1`
-    FOREIGN KEY (`comment_id`)
-    REFERENCES `lazzarodb`.`comment` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+                                                   `id` INT NOT NULL AUTO_INCREMENT,
+                                                   `trackname` VARCHAR(128) NOT NULL,
+    `producer_name` VARCHAR(45) NOT NULL,
+    `artist_name` VARCHAR(64) NOT NULL,
+    `genre` VARCHAR(50) NOT NULL,
+    `release_year` DATE NOT NULL,
+    PRIMARY KEY (`id`))
     ENGINE = InnoDB;
+
+
+
 
 -- Create User
 
@@ -134,11 +120,9 @@ INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_i
 INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('2', '3', 'Echt ned eso guet', '2', '2');
 INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('3', '5', 'ganz okay das ganze', '1', '1');
 
-INSERT INTO `lazzarodb`.`comment` (`id`, `content`, `date`, `user_id`) VALUES ('1', 'echt en coole review wirkli', '2005-04-16 18:26:53', '1');
-INSERT INTO `lazzarodb`.`comment` (`id`, `content`, `date`, `user_id`) VALUES ('2', 'findi jetzt gar ned aber okay...', '2011-09-16 15:37:22', '2');
+INSERT INTO `lazzarodb`.`comment` (`id`, `content`, `date`, `user_id`, `review_id`) VALUES ('1', 'echt en coole review wirkli', '2005-04-16 18:26:53', '1', '1');
+INSERT INTO `lazzarodb`.`comment` (`id`, `content`, `date`, `user_id`, `review_id`) VALUES ('2', 'findi jetzt gar ned aber okay...', '2011-09-16 15:37:22', '2', '2');
 
-INSERT INTO `lazzarodb`.`review_has_comment` (`review_id`, `comment_id`) VALUES ('1', '1');
-INSERT INTO `lazzarodb`.`review_has_comment` (`review_id`, `comment_id`) VALUES ('2', '2');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

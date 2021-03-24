@@ -19,12 +19,15 @@
                             <p><small class="text-muted">Comment</small></p>
                             <?php if (isset($_SESSION["user"]) && $_SESSION["user"]->moderator) { ?>
                                 <form action="/review/doDelete" method="post">
-                                    <button type="submit" class="btn btn-primary" name="delete_review">Review löschen</button>
+                                    <button type="submit" class="btn btn-primary" name="delete_review">Review löschen
+                                    </button>
                                     <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
                                 </form>
                                 <br>
                                 <form action="/review/update" method="post">
-                                    <button type="submit" class="btn btn-primary" name="update_review">Review bearbeiten</button>
+                                    <button type="submit" class="btn btn-primary" name="update_review">Review
+                                        bearbeiten
+                                    </button>
                                     <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
                                 </form>
                             <?php } ?>
@@ -78,18 +81,20 @@
                     <p class="card-text"><small class="text-muted">12/03/2021 - 09:31</small>
                     </p>
                     <p>Lorem Ipsum und so</p>
-
-                    <p><small class="text-muted">Comment</small></p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-8">
-                    <div class="form-floating">
+                    <form action="/review/Comment" method="post">
+                        <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here"
-                                  id="floatingTextarea"></textarea>
-                    </div>
-                    <button id="submitbtn" type="submit" class="btn">Kommentieren</button>
+                                  id="floatingTextarea" name="comment_content" ></textarea>
+                        </div>
+                        <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
+                        <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">
+                        <button name="doComment" id="commment" type="submit" class="btn">Kommentieren</button>
+                    </form>
                 </div>
 
             </div>

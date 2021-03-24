@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\CommentRepository;
+use App\Repository\ReviewHasCommentRepository;
 use App\Repository\ReviewRepository;
 use App\Repository\TrackRepository;
 use App\View\View;
@@ -12,6 +14,7 @@ class ReviewController
     {
         $reviewRepository = new ReviewRepository();
         $trackRepository = new TrackRepository();
+        $commentRepository = new CommentRepository();
 
         if(!isset($_GET['id']) || !$_GET['id'] || !is_numeric($_GET['id'])){
             header("Location: /");
@@ -23,6 +26,7 @@ class ReviewController
         $view->title = 'Reviews';
         $view->heading = 'Reviews';
         $view->review = $reviewRepository->readById($id);
+        $view->review->comments = $commentRepository->readAllByReviewId($id);
         $view->track = $trackRepository->readById($view->review->track_id);
         $view->display();
     }
@@ -158,6 +162,31 @@ class ReviewController
         $view->review = $reviewRepository->readById($id);
         $view->track = $trackRepository->readById($view->review->track_id);
         $view->display();
+    }
+
+    public function Comment()
+    {
+        $currentDateTime = date("Y-m-d h:i:sa");
+
+        if(!isset($_POST['review_id']) || !$_POST['review_id'] || !is_numeric($_POST['review_id'])){
+            header("Location: /");
+        }
+
+        if (isset($_POST['doComment'])) {
+            $review_id = $_POST['review_id'];
+            $comment_content = $_POST['comment_content'];
+            $date = $currentDateTime;
+            $user_id = $_POST['user_id'];
+            $commentRepository = new CommentRepository();
+            $comment_id = $commentRepository->create($comment_content, $date, $user_id, $review_id);
+//            $comment_id = $commentRepository->readLastId();
+//            $reviewHasCommentsRepository = new ReviewHasCommentRepository();
+//            $reviewHasCommentsRepository->create($review_id, $comment_id );
+
+        }
+        $detailLink = "/review?id=" . $_POST['review_id'] ;
+        header("Location: " . $detailLink);
+
     }
 
 }

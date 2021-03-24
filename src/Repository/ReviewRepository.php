@@ -10,7 +10,7 @@ class ReviewRepository extends Repository
 {
     protected $tableName = "review";
 
-    public function readAll($max = 100)
+    public function readAll($max = 100, $whereClause = "")
     {
         $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id order by r.id DESC LIMIT 0 , $max";
 
@@ -85,5 +85,46 @@ class ReviewRepository extends Repository
 
         $statement->close();
         $connection->close();
+    }
+
+    public function search(){
+        $connection = ConnectionHandler::getConnection();
+        $search = mysqli_real_escape_string($connection, $_POST['search']);
+        $query = "SELECT * FROM {$this ->tableName} where content like %$search%";
+
+
+
+        $statement = $connection->prepare($query);
+        $statement->execute();
+
+
+
+        if ($statement == false){
+            throw new Exception($connection->error);
+        }
+
+
+
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $data = array(
+            'track'=>array(),
+            'review'=>array()
+        );
+        while ($row = $result->fetch_object()) {
+            $data ['review'] [] = array(
+                'id'=>$row->review_id,
+                'rating'=>$row->rating,
+                'content'=>$row->content,
+                'user_id'=>$row->user_id,
+                'track_id'=>$row->track_id
+            );
+        }
     }
 }

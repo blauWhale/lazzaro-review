@@ -132,16 +132,19 @@ class Repository
      * Diese Funktion gibt ein array mit allen Datensätzen aus der Tabelle
      * zurück.
      *
-     * @param $max Wie viele Datensätze höchstens zurückgegeben werden sollen
+     * @param int $max Wie viele Datensätze höchstens zurückgegeben werden sollen
      *               (optional. standard 100)
-     *
-     * @throws Exception falls das Ausführen des Statements fehlschlägt
-     *
+     * @param string $whereClause
      * @return Ein array mit den gefundenen Datensätzen
+     * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
-    public function readAll($max = 100)
+    public function readAll($max = 100, $whereClause = "")
     {
-        $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
+        if(!empty($whereClause)){
+            $whereClause = "WHERE ".$whereClause;
+        }
+
+        $query = "SELECT * FROM {$this->tableName} $whereClause LIMIT 0, $max"; //SELECT * FROM comment WHERE review_id=1 LIMIT 0,100;
 
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
