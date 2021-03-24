@@ -8,8 +8,8 @@
                     <h6> <a href="/contact">Kontakt</a></h6>
                     <hr>
                     <h6> <a href="/impressum">Impressum</a></h6>
-                    <form>
-                        <input class="form-control me-2" id="searchbar" type="search" placeholder="Search" aria-label="Search">
+                    <form action="default/doSearch" method="post">
+                        <input name="search" class="form-control me-2" id="searchbar" type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
 

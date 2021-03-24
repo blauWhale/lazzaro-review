@@ -41,4 +41,16 @@ class DefaultController
         $view->reviews = $reviewRepository->readAll();
         $view->display();
     }
+
+    public function search(){
+        $view = new View('default/search');
+        $view->title = 'Suchen';
+        $view->heading = 'Suchen';
+        $view->display();
+    }
+
+    public function doSearch(){
+        $searchRepository = new ReviewRepository();
+        $searchRepository->search();
+    }
 }
