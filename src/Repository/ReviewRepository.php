@@ -87,10 +87,11 @@ class ReviewRepository extends Repository
         $connection->close();
     }
 
-    public function search($max = 100){
-        $query = "SELECT * FROM {$this ->tableName} where content lik, $max";
-
+    public function search(){
         $connection = ConnectionHandler::getConnection();
+        $search = mysqli_real_escape_string($connection, $_POST['search']);
+        $query = "SELECT * FROM {$this ->tableName} where content like %$search%";
+
         $statement = $connection->prepare($query);
         $statement->execute();
 
@@ -104,11 +105,18 @@ class ReviewRepository extends Repository
         }
 
         // Datensätze aus dem Resultat holen und in das Array $rows speichern
-        $rows = array();
+        $data = array(
+            'track'=>array(),
+            'review'=>array()
+        );
         while ($row = $result->fetch_object()) {
-            $rows[] = $row;
+            $data ['review'] [] = array(
+                'id'=>$row->review_id,
+                'rating'=>$row->rating,
+                'content'=>$row->content,
+                'user_id'=>$row->user_id,
+                'track_id'=>$row->track_id
+            );
         }
-
-        return $rows;
     }
 }
