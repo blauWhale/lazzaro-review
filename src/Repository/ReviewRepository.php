@@ -89,9 +89,13 @@ class ReviewRepository extends Repository
         $connection->close();
     }
 
-    public function search($searchTerm)
+    public function search($searchTerm, $whereClause = "")
     {
-        $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id WHERE  content like '%$searchTerm%' order by r.id DESC LIMIT 0,100";
+        if(!empty($whereClause)){
+            $whereClause = "WHERE ".$whereClause;
+        }
+
+        $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id $whereClause like '%$searchTerm%' order by r.id DESC LIMIT 0,100";
 
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
@@ -132,7 +136,6 @@ class ReviewRepository extends Repository
                 );
             }
         }
-
         return $data;
     }
 

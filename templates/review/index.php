@@ -53,25 +53,29 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input class="form-control" list="datalistOptions"
-                           placeholder="Type to search...">
+                    <div class="col-md-3">
+                        <form action="/default/search" method="post">
+                                <input class="form-control" list="datalistOptions" name="search"
+                                       placeholder="Type to search...">
+                        </form>
+                    </div>
 
                     <div class="list-group">
                         <h5>Genre</h5>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">
                             EDM
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">Pop</a>
-                        <a href="#" class="list-group-item list-group-item-action">Hip Hop</a>
-                        <a href="#" class="list-group-item list-group-item-action">Rock</a>
+                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Pop</a>
+                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Hip Hop</a>
+                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Rock</a>
 
                         <h5>Jahr</h5>
-                        <a href="#" class="list-group-item list-group-item-action">
+                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">
                             2021
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">2020</a>
-                        <a href="#" class="list-group-item list-group-item-action">2002</a>
-                        <a href="#" class="list-group-item list-group-item-action">1981</a>
+                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">2020</a>
+                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">2002</a>
+                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">1981</a>
                     </div>
 
                 </div>

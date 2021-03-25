@@ -48,11 +48,26 @@ class DefaultController
         $view->heading = 'Suchen';
         $searchTerm= $_POST['search'];
         $reviewRepository = new ReviewRepository();
-        $view->reviews = $reviewRepository->search($searchTerm);
+        $view->reviews = $reviewRepository->search($searchTerm, "content");
         $view->display();
     }
 
-    public function doSearch(){
-
+    public function yearFilter(){
+        $view = new View('default/search');
+        $view->title = 'Filter';
+        $view->heading = 'Filter';
+        $yearFilter= $_POST['yearFilter'];
+        $reviewRepository = new ReviewRepository();
+        $view->reviews = $reviewRepository->search($yearFilter, "release_year");
+        $view->display();
+    }
+    public function genreFilter(){
+        $view = new View('default/search');
+        $view->title = 'Filter';
+        $view->heading = 'Filter';
+        $genreFilter= $_POST['genreFilter'];
+        $reviewRepository = new ReviewRepository();
+        $view->reviews = $reviewRepository->search($genreFilter, "genre");
+        $view->display();
     }
 }

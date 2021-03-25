@@ -12,12 +12,12 @@
                 <div class="col-md-8" id="page-title">
                     <h4>Reviews</h4>
                 </div>
-                <form action="/default/search" method="post">
-                    <div class="col-md-3">
-                        <input class="form-control" list="datalistOptions" name="search"
-                               placeholder="Type to search...">
-                    </div>
-                </form>
+                <div class="col-md-3">
+                    <form action="/default/search" method="post">
+                            <input class="form-control" list="datalistOptions" name="search"
+                                   placeholder="Type to search...">
+                    </form>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -54,26 +54,25 @@
                         <h5>Genre</h5>
                         <?php foreach ($reviews['review'] as $review): ?>
                             <?php ?>
-                            <a href="#" class="list-group-item list-group-item-action">
+                        <form action="default/genreFilter" method="post">
+                            <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">
                                 <?= $reviews['track'][$review['track_id']]['genre'] ?>
                             </a>
+                        </form>
                         <?php ?>
                         <?php endforeach; ?>
                         <br>
 
                         <h5>Jahr</h5>
                         <?php foreach ($reviews['review'] as $review): ?>
-                        <a href="#" class="list-group-item list-group-item-action">
-                            <?= $reviews['track'][$review['track_id']]['release'] ?>
-                        </a>
+                        <form action="default/yearFilter" method="post">
+                            <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">
+                                <?= $reviews['track'][$review['track_id']]['release'] ?>
+                            </a>
+                        </form>
                         <?php endforeach; ?>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
-
 </main>

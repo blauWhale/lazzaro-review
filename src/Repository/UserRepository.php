@@ -37,7 +37,7 @@ class UserRepository extends Repository
         }
     }
 
-    public function readAll($max = 100)
+    public function readAll($max = 100, $whereClause = "")
     {
         $query = "SELECT * FROM {$this->tableName} LIMIT 0, $max";
 

@@ -12,12 +12,6 @@
                 <div class="col-md-8" id="page-title">
                     <h4>Reviews</h4>
                 </div>
-                <form action="/default/doSearch" method="post">
-                    <div class="col-md-3">
-                        <input class="form-control" list="datalistOptions" name="search"
-                               placeholder="Type to search...">
-                    </div>
-                </form>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -46,33 +40,7 @@
                                 <p class="card-text"><?= $review['content']; ?></p>
                             </div>
                         </div>
-
                     <?php endforeach; ?>
                 </div>
-                <div class="col-md-3" >
-                    <div class="list-group">
-                        <h5>Genre</h5>
-                        <?php foreach ($reviews['review'] as $review): ?>
-                            <?php ?>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <?= $reviews['track'][$review['track_id']]['genre'] ?>
-                            </a>
-                            <?php ?>
-                        <?php endforeach; ?>
-                        <br>
-
-                        <h5>Jahr</h5>
-                        <?php foreach ($reviews['review'] as $review): ?>
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <?= $reviews['track'][$review['track_id']]['release'] ?>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-
-                </div>
-
-            </div>
-
-
         </div>
 </main>
