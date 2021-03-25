@@ -34,6 +34,7 @@ class DefaultController
     public function index()
     {
         $reviewRepository = new ReviewRepository();
+        $trackRepository = new TrackRepository();
 
         $view = new View('default/index');
         $view->title = 'Startseite';
@@ -53,8 +54,10 @@ class DefaultController
             $view->reviews = $reviewRepository->search($filter);
         }else{
             $view->reviews = $reviewRepository->readAll();
-        }
+            $allGenres = $trackRepository->readAllBySelector(100,'genre');
+            $allYears = $trackRepository->readAllBySelector(100,'release_year');
 
+        }
         $view->display();
     }
 }
