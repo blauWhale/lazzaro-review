@@ -38,36 +38,23 @@ class DefaultController
         $view = new View('default/index');
         $view->title = 'Startseite';
         $view->heading = 'Startseite';
-        $view->reviews = $reviewRepository->readAll();
-        $view->display();
-    }
 
-    public function search(){
-        $view = new View('default/search');
-        $view->title = 'Suchen';
-        $view->heading = 'Suchen';
-        $searchTerm= $_POST['search'];
-        $reviewRepository = new ReviewRepository();
-        $view->reviews = $reviewRepository->search($searchTerm, "content");
-        $view->display();
-    }
+        $filter = array();
+        if(!empty($_GET['searchYear'])){
+            $filter["release_year"]= $_GET['searchYear'];
+        }else if(!empty($_GET['searchGenre'])){
+            $filter["genre"]= $_GET['searchGenre'];
+        }else if(!empty($_GET['searchContent'])){
+            $filter["content"]= $_GET['searchContent'];
+        }
 
-    public function yearFilter(){
-        $view = new View('default/search');
-        $view->title = 'Filter';
-        $view->heading = 'Filter';
-        $yearFilter= $_POST['yearFilter'];
-        $reviewRepository = new ReviewRepository();
-        $view->reviews = $reviewRepository->search($yearFilter, "release_year");
-        $view->display();
-    }
-    public function genreFilter(){
-        $view = new View('default/search');
-        $view->title = 'Filter';
-        $view->heading = 'Filter';
-        $genreFilter= $_POST['genreFilter'];
-        $reviewRepository = new ReviewRepository();
-        $view->reviews = $reviewRepository->search($genreFilter, "genre");
+        if(sizeof($filter) > 0){
+            $reviewRepository = new ReviewRepository();
+            $view->reviews = $reviewRepository->search($filter);
+        }else{
+            $view->reviews = $reviewRepository->readAll();
+        }
+
         $view->display();
     }
 }

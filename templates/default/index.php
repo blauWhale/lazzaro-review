@@ -13,8 +13,8 @@
                     <h4>Reviews</h4>
                 </div>
                 <div class="col-md-3">
-                    <form action="/default/search" method="post">
-                            <input class="form-control" list="datalistOptions" name="search"
+                    <form action="/" method="get">
+                            <input class="form-control" list="datalistOptions" name="searchContent"
                                    placeholder="Type to search...">
                     </form>
                 </div>
@@ -52,24 +52,38 @@
                 <div class="col-md-3" >
                     <div class="list-group">
                         <h5>Genre</h5>
-                        <?php foreach ($reviews['review'] as $review): ?>
-                            <?php ?>
-                        <form action="default/genreFilter" method="post">
-                            <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">
+                        <?php
+
+                        $oldFilters = "";
+                        foreach($_GET as $field=> $value){
+                            if($field === "searchGenre")
+                                continue;
+
+                            $oldFilters .=$field."=".$value."&";
+                        }
+
+                        foreach ($reviews['review'] as $review):
+                            ?>
+                            <a href="/?<?= $oldFilters ?>searchGenre=<?= $reviews['track'][$review['track_id']]['genre'] ?>" class="list-group-item list-group-item-action" name="genreFilter">
                                 <?= $reviews['track'][$review['track_id']]['genre'] ?>
                             </a>
-                        </form>
                         <?php ?>
                         <?php endforeach; ?>
                         <br>
 
                         <h5>Jahr</h5>
-                        <?php foreach ($reviews['review'] as $review): ?>
-                        <form action="default/yearFilter" method="post">
-                            <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">
+                        <?php
+                        $oldFilters = "";
+                        foreach($_GET as $field=> $value){
+                            if($field === "searchYear")
+                                continue;
+
+                            $oldFilters .=$field."=".$value."&";
+                        }
+                        foreach ($reviews['review'] as $review): ?>
+                            <a href="/?<?= $oldFilters ?>searchYear=<?= $reviews['track'][$review['track_id']]['release'] ?>" class="list-group-item list-group-item-action" name="yearFilter">
                                 <?= $reviews['track'][$review['track_id']]['release'] ?>
                             </a>
-                        </form>
                         <?php endforeach; ?>
                     </div>
                 </div>

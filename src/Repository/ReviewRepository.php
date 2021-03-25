@@ -89,16 +89,27 @@ class ReviewRepository extends Repository
         $connection->close();
     }
 
-    public function search($searchTerm, $whereClause = "")
+    public function search($filters)
     {
-        if(!empty($whereClause)){
-            $whereClause = "WHERE ".$whereClause;
+        if (sizeof($filters) > 0) {
+            $whereClause = "WHERE ";
+            $searchTerms = array();
+            foreach ($filters as $field => $searchTerm) {
+                $whereClause .= $field . " like ?,";
+                $searchTerms[] = "%" . $searchTerm . "%";
+            }
+            $whereClause = rtrim($whereClause, ',');
+
+
         }
 
-        $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id $whereClause like '%$searchTerm%' order by r.id DESC LIMIT 0,100";
+        $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id $whereClause order by r.id DESC LIMIT 0,100";
 
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
+
+        $types = str_repeat("s", sizeof($searchTerms));
+        $statement->bind_param($types, ...$searchTerms); //... = accept variable number of arguments
         $statement->execute();
 
         if ($statement == false) {
