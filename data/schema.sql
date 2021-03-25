@@ -110,8 +110,8 @@ create user if not exists lazzarodb_user identified by '1234';
 grant insert, update, delete, select on lazzarodb.* to 'lazzarodb_user'@'%';
 
 -- Insert Values
-INSERT INTO `lazzarodb`.`user` (`id`, `email`, `username`, `password`, `moderator`) VALUES ('1', 'raphael@blaauw.ch', 'raphael', '1234', '1');
-INSERT INTO `lazzarodb`.`user` (`id`, `email`, `username`, `password`, `moderator`) VALUES ('2', 'samuel@hajnik.ch', 'samuel', '1234', '1');
+INSERT INTO `lazzarodb`.`user` (`id`, `email`, `username`, `password`, `moderator`) VALUES ('1', 'raphael@blaauw.ch', 'raphael', '$2y$10$z0H8Y7VO5OQZEc0G8cApEO5mlibhN1F9USxONUsC.vcoDM9QoQEuO', '1');
+INSERT INTO `lazzarodb`.`user` (`id`, `email`, `username`, `password`, `moderator`) VALUES ('2', 'samuel@hajnik.ch', 'samuel', '$2y$10$z0H8Y7VO5OQZEc0G8cApEO5mlibhN1F9USxONUsC.vcoDM9QoQEuO', '1');
 
 INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`) VALUES ('1', 'more than a feeling', 'boston', 'boston', 'rock', '1981-01-01');
 INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`) VALUES ('2', 'another track', 'queen', 'queen', 'rock', '1982-01-01');

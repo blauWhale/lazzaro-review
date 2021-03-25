@@ -6,6 +6,7 @@ use App\Repository\CommentRepository;
 use App\Repository\ReviewHasCommentRepository;
 use App\Repository\ReviewRepository;
 use App\Repository\TrackRepository;
+use App\Repository\UserRepository;
 use App\View\View;
 
 class ReviewController
@@ -15,6 +16,7 @@ class ReviewController
         $reviewRepository = new ReviewRepository();
         $trackRepository = new TrackRepository();
         $commentRepository = new CommentRepository();
+        $userRepository = new UserRepository();
 
         if(!isset($_GET['id']) || !$_GET['id'] || !is_numeric($_GET['id'])){
             header("Location: /");
@@ -53,6 +55,7 @@ class ReviewController
                 exit('Bitte alle Felder ausfüllen!');
             }
 
+            /*
             //TODO IMAGE UPLOAD
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -73,13 +76,13 @@ class ReviewController
                     $uploadOk = 0;
                 }
             }
-
+            */
             $trackname = $_POST['trackname'];
             $producer_name = $_POST['producer_name'];
             $artist_name = $_POST['artist_name'];
             $genre = $_POST['genre'];
             $release_year = $_POST['release_year'];
-            $filename = $_FILES["fileToUpload"]["name"];
+            //$filename = $_FILES["fileToUpload"]["name"];
 
             $trackRepository = new TrackRepository();
             $trackRepository->create($trackname, $producer_name, $artist_name, $genre, $release_year, $filename);
@@ -164,9 +167,9 @@ class ReviewController
         $view->display();
     }
 
-    public function Comment()
+    public function comment()
     {
-        $currentDateTime = date("Y-m-d h:i:sa");
+        $currentDateTime = date("Y-m-d h:i:s");
 
         if(!isset($_POST['review_id']) || !$_POST['review_id'] || !is_numeric($_POST['review_id'])){
             header("Location: /");
@@ -178,10 +181,7 @@ class ReviewController
             $date = $currentDateTime;
             $user_id = $_POST['user_id'];
             $commentRepository = new CommentRepository();
-            $comment_id = $commentRepository->create($comment_content, $date, $user_id, $review_id);
-//            $comment_id = $commentRepository->readLastId();
-//            $reviewHasCommentsRepository = new ReviewHasCommentRepository();
-//            $reviewHasCommentsRepository->create($review_id, $comment_id );
+            $commentRepository->create($comment_content, $date, $user_id, $review_id);
 
         }
         $detailLink = "/review?id=" . $_POST['review_id'] ;

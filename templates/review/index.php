@@ -40,8 +40,10 @@
 
                         <p class"Rating"> Lazzaro Rating: <?= $review->rating; ?>/10</p>
 
-                        <label for="customRange3" class="form-label">User Rating</label>
-                        <input type="range" class="form-range" min="0" max="10" step="1" id="customRange3">
+                        <button class="btn btn-outline-secondary" type="button">Button</button>
+                        <button class="btn btn-outline-secondary" type="button">Button</button>
+                        <button class="btn btn-outline-secondary" type="button">Button</button>
+                        <button class="btn btn-outline-secondary" type="button">Button</button>
 
                         <a id="sharebutton" class="btn" href="" role="button">Share</a>
 
@@ -74,22 +76,24 @@
 
                 </div>
             </div>
-            <h2>Kommentare (1)</h2>
-            <div class="row">
-                <div class="col-md-8">
-                    <h5>musikhörer55</h5>
-                    <p class="card-text"><small class="text-muted">12/03/2021 - 09:31</small>
-                    </p>
-                    <p>Lorem Ipsum und so</p>
-                </div>
-            </div>
+            <h2>Kommentare (<?= $i=count($review->comments) ?>)</h2>
 
+            <?php foreach ($review->comments as $comment): ?>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h5><?= $comment->user_id; ?></h5>
+                        <p class="card-text"><small class="text-muted"><?= $comment->date; ?></small>
+                        </p>
+                        <p><?= $comment->content; ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
             <div class="row">
                 <div class="col-md-8">
-                    <form action="/review/Comment" method="post">
+                    <form action="/review/comment" method="post">
                         <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here"
-                                  id="floatingTextarea" name="comment_content" ></textarea>
+                                  id="floatingTextarea" name="comment_content"></textarea>
                         </div>
                         <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
                         <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">

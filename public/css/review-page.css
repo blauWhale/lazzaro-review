@@ -4,3 +4,7 @@
 .tags{
     text-align: right;
 }
+
+.btn btn-outline-secondary{
+    width: 5px;
+}
