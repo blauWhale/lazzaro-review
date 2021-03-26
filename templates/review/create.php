@@ -1,5 +1,5 @@
 <div class="row">
-    <form action="/review/doCreate" method="post" class="col-6">
+    <form action="/review/doCreate" onsubmit="return validateReviewCreator()" method="post" class="col-6" name="reviewCreator">
         <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="trackOption">
             <option selected>Choose an existing Track</option>
             <?php foreach ($tracks as $track):?>

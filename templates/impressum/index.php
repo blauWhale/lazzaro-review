@@ -13,8 +13,10 @@
                     <h4>Impressum</h4>
                 </div>
                 <div class="col-md-3">
-                    <input class="form-control" list="datalistOptions"
-                           placeholder="Type to search...">
+                    <form action="/" method="get">
+                        <input class="form-control" list="datalistOptions" name="searchContent"
+                               placeholder="Type to search...">
+                    </form>
                 </div>
             </div>
             <div class="row">
@@ -31,7 +33,7 @@
                         <tbody>
                         <tr>
                             <th scope="row">Logo Bild</th>
-                            <td>Bild.com</td>
+                            <td>Selbstgemacht</td>
                             <td><button type="button" class="btn btn-link">Link</button></td>
                         </tr>
                         <tr>

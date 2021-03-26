@@ -96,10 +96,10 @@ class ReviewController
         if (isset($_POST['createReview'])) {
 
             if (!isset($_POST['rating']) || !isset($_POST['content']) || !isset($_POST['user_id']) || !isset($_POST['trackOption'])) {
-                exit('Die Daten konnten nicht abgesendet werden!');
+                exit("Die Daten konnten nicht abgesendet werden");
             }
             if (empty($_POST['rating']) || empty($_POST['content']) || empty($_POST['user_id']) || !isset($_POST['trackOption'])) {
-                exit('Bitte alle Felder ausfüllen!');
+                exit("Bitte alle Felder ausfüllen");
             }
 
             $rating = $_POST['rating'];

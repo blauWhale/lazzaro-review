@@ -1,5 +1,5 @@
 <div class="row">
-	<form action="/user/doCreate" method="post" class="col-6">
+	<form action="/user/doCreate" onsubmit="return validateUserCreator()" method="post" class="col-6" name="userCreator">
 		<div class="form-group">
 		  <label for="username">Username</label>
 	  	<input id="username" name="username" type="text" class="form-control">

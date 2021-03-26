@@ -43,4 +43,5 @@
                     <?php endforeach; ?>
                 </div>
         </div>
+    </div>
 </main>

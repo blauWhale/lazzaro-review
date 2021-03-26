@@ -100,8 +100,6 @@ class ReviewRepository extends Repository
                 $searchTerms[] = "%" . $searchTerm . "%";
             }
             $whereClause = rtrim($whereClause, ',');
-
-
         }
 
         $query = "SELECT r.id as review_id, t.id as t_id, r.*, t.* FROM {$this->tableName} r JOIN track t on t.id=r.track_id $whereClause order by r.id DESC LIMIT 0,100";

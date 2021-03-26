@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
     <link rel="stylesheet" type="text/css" href="/css/index.css" >
     <link rel="stylesheet" type="text/css" href="/css/review-page.css" >
+    <script src="/js/index.js"></script>
 
     <title><?= $title; ?> | Home</title>
   </head>
