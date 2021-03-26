@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`comment` (
     CONSTRAINT `fk_comment_review1`
     FOREIGN KEY (`review_id`)
     REFERENCES `lazzarodb`.`review` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
     ENGINE = InnoDB
     ROW_FORMAT = DEFAULT;

@@ -54,8 +54,8 @@ class DefaultController
             $view->reviews = $reviewRepository->search($filter);
         }else{
             $view->reviews = $reviewRepository->readAll();
-            $allGenres = $trackRepository->readAllBySelector(100,'genre');
-            $allYears = $trackRepository->readAllBySelector(100,'release_year');
+            $view->genres = $trackRepository->readAllBySelector(100,'genre');
+            $view->years = $trackRepository->readAllBySelector(100,'release_year');
 
         }
         $view->display();
