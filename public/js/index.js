@@ -19,17 +19,23 @@ function validateSearch(){
     }
 }
 
-function validateReviewCreator(){
-    var content = document.forms["reviewUpdater"]["content"].value;
-    var rating = document.forms["reviewUpdater"]["rating"].value;
-    if (content == "") {
-        alert("Bitte alle Felder ausfüllen.");
-        return false;
-    }
+function validateReviewCreator(){ //TODO Validation JS
+    var content = document.forms["reviewCreator"]["content"].value;
+    var rating = document.forms["reviewCreator"]["rating"].value;
+    var trackOption = document.forms["reviewCreator"]["trackOption"].value;
     if (rating == "") {
         alert("Bitte alle Felder ausfüllen.");
         return false;
     }
+    if (content == "") {
+        alert("Bitte alle Felder ausfüllen.");
+        return false;
+    }
+    if (trackOption == "" || trackOption.match(/^(\d?[1-9]|[1-9]0)$/)) {
+        alert("Bitte ein Lied auswählen.");
+        return false;
+    }
+
 }
 
 function validateUserCreator(){
@@ -88,6 +94,7 @@ function validateTrackCreator(){
     var producer = document.forms["trackCreator"]["producer_name"].value;
     var artist = document.forms["trackCreator"]["artist_name"].value;
     var genre = document.forms["trackCreator"]["genre"].value;
+    var release = document.forms["trackCreator"]["release_year"].value;
     if (trackname == ""){
         alert("Tracknamen eingeben.")
         return false;
@@ -102,6 +109,10 @@ function validateTrackCreator(){
     }
     if (genre == ""){
         alert("Genre eingeben.")
+        return false;
+    }
+    if (release == ""){
+        alert("Erscheinungsdatum eingeben.")
         return false;
     }
 }

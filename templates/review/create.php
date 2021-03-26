@@ -48,10 +48,6 @@
             <label for="release_year">release_year</label>
             <input id="release_year" name="release_year" type="date" class="form-control">
         </div><br>
-        Select image to upload:<br><br>
-        <input type="file" name="fileToUpload" id="fileToUpload"></label>
-        <br>
-        <br>
         <button type="submit" name="createTrack" class="btn btn-primary">Track anlegen</button>
     </form>
 

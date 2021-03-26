@@ -14,4 +14,9 @@
 		</div>
 		<button type="submit" name="send" class="btn btn-primary">Absenden</button>
 	</form>
+    <?php if (isset($_SESSION["loginFailed"])) { ?>
+        <div class="alert alert-danger" role="alert">
+            Etwas hat nicht geklappt, bitte versuche es nochmals!
+        </div>
+    <?php } ?>
 </div>

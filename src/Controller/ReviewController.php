@@ -50,40 +50,17 @@ class ReviewController
         if (isset($_POST['createTrack'])) {
 
             if (!isset($_POST['trackname']) || !isset($_POST['producer_name']) || !isset($_POST['artist_name']) || !isset($_POST['genre']) || !isset($_POST['release_year'])) {
-                exit('Die Daten konnten nicht abgesendet werden!');
+                header('Location: /review/create');
             }
             if (empty($_POST['trackname']) || empty($_POST['producer_name']) || empty($_POST['artist_name']) || empty($_POST['genre']) || empty($_POST['release_year'])) {
-                exit('Bitte alle Felder ausfüllen!');
+                header('Location: /review/create');
             }
 
-            /*
-            //TODO IMAGE UPLOAD
-            $target_dir = "images/";
-            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-            $uploadOk = 1;
-            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-                && $imageFileType != "gif" ) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                $uploadOk = 0;
-            }
-            if(isset($_POST["createTrack"])) {
-                $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-                if($check !== false) {
-                    echo "File is an image - " . $check["mime"] . ".";
-                    $uploadOk = 1;
-                } else {
-                    echo "File is not an image.";
-                    $uploadOk = 0;
-                }
-            }
-            */
             $trackname = $_POST['trackname'];
             $producer_name = $_POST['producer_name'];
             $artist_name = $_POST['artist_name'];
             $genre = $_POST['genre'];
             $release_year = $_POST['release_year'];
-            //$filename = $_FILES["fileToUpload"]["name"];
 
             $trackRepository = new TrackRepository();
             $trackRepository->create($trackname, $producer_name, $artist_name, $genre, $release_year, $filename);
@@ -98,10 +75,10 @@ class ReviewController
         if (isset($_POST['createReview'])) {
 
             if (!isset($_POST['rating']) || !isset($_POST['content']) || !isset($_POST['user_id']) || !isset($_POST['trackOption'])) {
-                exit("Die Daten konnten nicht abgesendet werden");
+                header('Location: /review/create');
             }
             if (empty($_POST['rating']) || empty($_POST['content']) || empty($_POST['user_id']) || !isset($_POST['trackOption'])) {
-                exit("Bitte alle Felder ausfüllen");
+                header('Location: /review/create');
             }
 
             $rating = $_POST['rating'];

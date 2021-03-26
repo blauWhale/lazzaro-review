@@ -12,12 +12,8 @@ class UserController
 {
     public function index()
     {
-        $userRepository = new UserRepository();
 
-        $view = new View('user/index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->users = $userRepository->readAll();
+        $view = new View('default/index');
         $view->display();
     }
 
@@ -69,30 +65,39 @@ class UserController
             $password = $_POST['password'];
 
             if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['email'])) {
-                exit('Die Daten konnten nicht abgesendet werden!');
+                $_SESSION["loginFailed"] = true;
+                header('Location: /user/create');
             }
             if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
-                exit('Bitte alle Felder ausfüllen!');
+                $_SESSION["loginFailed"] = true;
+                header('Location: /user/create');
             }
 
             if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                exit('Email ungültig!');
+                $_SESSION["loginFailed"] = true;
+                header('Location: /user/create');
             }
 
             if (preg_match('/^[a-zA-Z0-9]{3,25}+$/', $_POST['username']) == 0) {
-                exit('Username ungültig!');
+                $_SESSION["loginFailed"] = true;
+                header('Location: /user/create');
             }
 
             if (strlen($_POST['password']) > 20 || strlen($_POST['password']) < 3) {
-                exit('Passwort muss mindestens 3 Zeichen und maximal 20 Zeichen lang sein!');
+                $_SESSION["loginFailed"] = true;
+                header('Location: /user/create');
             }
 
-            $userRepository = new UserRepository();
-            $userRepository->create($username, $email, $password);
+            if (!$_SESSION["loginFailed"]){
+                $userRepository = new UserRepository();
+                $userRepository->create($username, $email, $password);
+                header('Location: default/index');
+            }
+
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
+        header('Location: /user/create');
     }
 
     public function delete()

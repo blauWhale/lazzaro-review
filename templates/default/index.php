@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 d-flex flex-wrap justify-content-between">
+                <div id="cardspace" class="col-md-8 d-flex flex-wrap align-items-start justify-content-start">
                 <?php foreach ($reviews['review'] as $review):
 
                     $detailLink = "/review?id=" . $review['id'] ;
