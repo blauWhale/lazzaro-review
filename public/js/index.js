@@ -12,7 +12,16 @@ function validateReviewUpdater() {
 }
 
 function validateSearch(){
-    var search = document.forms["searchValidator"]["searchContent"].value;
+    var search = document.forms["searchbar"]["searchContent"].value;
+    if (search == ""){
+        alert("Bitte etwas eingeben.");
+        return false;
+    }
+}
+
+
+function validateFooterSearch(){
+    var search = document.forms["footerSearch"]["searchContent"].value;
     if (search == ""){
         alert("Bitte etwas eingeben.");
         return false;

@@ -45,9 +45,9 @@
 
                 <div class="col-md-3">
                     <div class="col-md-3">
-                        <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
+                        <form action="/" method="get" onsubmit="return validateSearch()" name="searchbar">
                             <input class="form-control"  list="datalistOptions" name="searchContent"
-                                   placeholder="Type to search...">
+                                   placeholder="Nach Inhalten suchen...">
                         </form>
                     </div>
 
@@ -104,17 +104,21 @@
             <?php endforeach; ?>
             <div class="row">
                 <div class="col-md-8">
+                    <?php if (isset($_SESSION["user"])) { ?>
                     <form action="/review/comment" method="post" name="commentValidator" onsubmit="return validateComments()">
                         <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here"
                                   id="floatingTextarea" name="comment_content"></textarea>
                         </div>
                         <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
-                        <?php if (isset($_SESSION["user"])) { ?>
+
                             <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">
-                        <?php } ?>
+
                         <button name="doComment" id="commment" type="submit" class="btn">Kommentieren</button>
                     </form>
+                    <?php } else {  ?>
+                        <p>Melde dich <a href="/user/login"><strong>hier</strong></a> an um zu kommentieren! Noch kein Mitglied? Registriere dich <a href="/user/create"><strong>hier</strong></a></p>
+                    <?php } ?>
                 </div>
 
             </div>

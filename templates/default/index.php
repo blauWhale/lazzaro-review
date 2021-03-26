@@ -13,9 +13,9 @@
                     <h4>Reviews</h4>
                 </div>
                 <div class="col-md-3">
-                    <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
+                    <form action="/" method="get" onsubmit="return validateSearch()" name="searchbar">
                             <input class="form-control"  list="datalistOptions" name="searchContent"
-                                   placeholder="Type to search...">
+                                   placeholder="Nach Inhalten suchen...">
                     </form>
                 </div>
             </div>
