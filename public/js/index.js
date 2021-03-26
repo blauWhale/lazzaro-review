@@ -2,19 +2,19 @@ function validateReviewUpdater() {
     var content = document.forms["reviewUpdater"]["content"].value;
     var rating = document.forms["reviewUpdater"]["rating"].value;
     if (content == "") {
-        alert("content must be filled out");
+        alert("Bitte alle Felder ausfüllen.");
         return false;
     }
     if (rating == "") {
-        alert("rating must be filled out");
+        alert("Bitte alle Felder ausfüllen.");
         return false;
     }
 }
 
 function validateSearch(){
     var search = document.forms["searchValidator"]["searchContent"].value;
-    if (search == "" /*|| search != */){
-        alert("Keine Ergebnisse gefunden");
+    if (search == ""){
+        alert("Bitte etwas eingeben.");
         return false;
     }
 }
@@ -23,11 +23,11 @@ function validateReviewCreator(){
     var content = document.forms["reviewUpdater"]["content"].value;
     var rating = document.forms["reviewUpdater"]["rating"].value;
     if (content == "") {
-        alert("content must be filled out");
+        alert("Bitte alle Felder ausfüllen.");
         return false;
     }
     if (rating == "") {
-        alert("rating must be filled out");
+        alert("Bitte alle Felder ausfüllen.");
         return false;
     }
 }
@@ -45,7 +45,7 @@ function validateUserCreator(){
         alert("Email ungültig")
         return false;
     }
-    if (password == "" || password.length > 20 || password.length < 3){
+    if (password.length > 20 || password.length < 3){
         alert("Passwort muss zwischen 3 und 20 Zeichen lang sein.")
         return false;
     }
@@ -60,6 +60,56 @@ function validateUserLogin(){
     }
     if (password == "" || password.length > 20 || password.length < 3){
         alert("Passwort muss zwischen 3 und 20 Zeichen lang sein.")
+        return false;
+    }
+}
+
+function validateContact(){
+    var vorname = document.forms["contactValidator"]["vorname"].value;
+    var nachname = document.forms["contactValidator"]["nachname"].value;
+    var email = document.forms["contactValidator"]["email"].value;
+    var message = document.forms["contactValidator"]["msg"].value;
+    if (vorname == "" || nachname == ""){
+        alert("Bitte Ihren Namen eingeben.")
+        return false;
+    }
+    if (email == "" || !email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+        alert("Email ungültig")
+        return false;
+    }
+    if (message == ""){
+        alert("Bitte Ihre Nachricht eingeben.")
+        return false;
+    }
+}
+
+function validateTrackCreator(){
+    var trackname = document.forms["trackCreator"]["trackname"].value;
+    var producer = document.forms["trackCreator"]["producer_name"].value;
+    var artist = document.forms["trackCreator"]["artist_name"].value;
+    var genre = document.forms["trackCreator"]["genre"].value;
+    if (trackname == ""){
+        alert("Tracknamen eingeben.")
+        return false;
+    }
+    if (producer == ""){
+        alert("Produzentennamen eingeben.")
+        return false;
+    }
+    if (artist == ""){
+        alert("Sängernamen eingeben.")
+        return false;
+    }
+    if (genre == ""){
+        alert("Genre eingeben.")
+        return false;
+    }
+}
+
+function validateComments(){
+    var comment = document.forms["commentValidator"]["comment_content"].value;
+    if (comment.length > 100 || comment.length < 10){
+        alert("Ein Kommentar muss zwischen 10 und 100 Zeichen lang sein.")
         return false;
     }
 }

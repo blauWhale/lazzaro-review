@@ -25,7 +25,7 @@
 
                         <h4>Gib hier den neuen Reviewtext ein:</h4>
                         <br>
-                        <form action="/review/doUpdate" onsubmit="return validatereviewUpdater()" method="post" name="reviewUpdater">
+                        <form action="/review/doUpdate" onsubmit="return validateReviewUpdater()" method="post" name="reviewUpdater">
                             <div class="form-group">
                                 <label for="content" class="form-label">content</label>
                                 <textarea class="form-control" id="content" name="content" rows="4"></textarea>
@@ -47,8 +47,10 @@
                 </div>
 
                 <div class="col-md-3">
-                    <input class="form-control" list="datalistOptions"
-                           placeholder="Type to search...">
+                    <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
+                        <input class="form-control"  list="datalistOptions" name="searchContent"
+                               placeholder="Type to search...">
+                    </form>
 
                     <div class="list-group">
                         <h5>Genre</h5>

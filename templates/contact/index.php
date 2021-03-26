@@ -13,13 +13,15 @@
                     <h4>Kontakt</h4>
                 </div>
                 <div class="col-md-3">
-                    <input class="form-control" list="datalistOptions"
-                           placeholder="Type to search...">
+                    <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
+                        <input class="form-control"  list="datalistOptions" name="searchContent"
+                               placeholder="Type to search...">
+                    </form>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <form action="/contact/sendForm" method="post">
+                    <form action="/contact/sendForm" onsubmit="return validateContact()" method="post" name="contactValidator">
                         <div class="card">
                             <div class="card-body" id="kontaktformular">
                                 <h5 class="card-title">Unser Kontaktformular:</h5>

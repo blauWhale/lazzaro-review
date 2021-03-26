@@ -14,8 +14,10 @@
                 </div>
                 <div class="col-md-3">
                     <form action="/" method="get">
-                        <input class="form-control" list="datalistOptions" name="searchContent"
-                               placeholder="Type to search...">
+                        <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
+                            <input class="form-control"  list="datalistOptions" name="searchContent"
+                                   placeholder="Type to search...">
+                        </form>
                     </form>
                 </div>
             </div>

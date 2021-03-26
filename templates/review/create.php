@@ -26,7 +26,7 @@
         <button type="submit" name="createReview" class="btn btn-primary">Review erstellen</button>
     </form>
         <br>
-    <form action="/review/doCreateTrack" method="post" class="col-6">
+    <form action="/review/doCreateTrack" method="post" class="col-6" name="trackCreator" onsubmit="return validateTrackCreator()">
         <h2>Füge einen neuen Track hinzu: </h2>
         <div class="form-group">
             <label for="username">Trackname</label>

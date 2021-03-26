@@ -45,8 +45,8 @@
 
                 <div class="col-md-3">
                     <div class="col-md-3">
-                        <form action="/default/search" method="post">
-                            <input class="form-control" list="datalistOptions" name="search"
+                        <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
+                            <input class="form-control"  list="datalistOptions" name="searchContent"
                                    placeholder="Type to search...">
                         </form>
                     </div>
@@ -86,7 +86,7 @@
             <?php endforeach; ?>
             <div class="row">
                 <div class="col-md-8">
-                    <form action="/review/comment" method="post">
+                    <form action="/review/comment" method="post" name="commentValidator" onsubmit="return validateComments()">
                         <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here"
                                   id="floatingTextarea" name="comment_content"></textarea>
