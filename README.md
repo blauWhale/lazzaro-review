@@ -3,9 +3,9 @@
 ### Abstract
 - Eine Musikdatenbank mit Bewertungen von Musikstücken <br>
 - Die Bewertungen können kommentiert werden <br>
-- User können selber eineBewertungenvon 1-10 Punktenhinterlassen<br>
+- User können selber eine Bewertungenvon 1-10 Punktenhinterlassen<br>
 - Eine Musikdatenbanksoll implementiert werden+ eine Benutzerdatenbank<br>
-- Eine besondere Herausforderung wirddie Benutzerdatenbank mit dem Registrieren und Anmelden von Usern sein.<br>
+- Eine besondere Herausforderung wird die Benutzerdatenbank mit dem Registrieren und Anmelden von Usern sein.<br>
 
 ### Zielgruppe
 - 16 - 60 Jahre alt<br>
@@ -34,3 +34,17 @@
 
 ### ERM
 ![alt text](Admin/erm.png "ERM")
+
+### Fazit
+Unser Projekt "Lazzaro Review" war sehr fordernd und wir (Samuel Hajnik und Raphael Blaauw) konnten viele Neues 
+lernen zum Thema PHP, Datenbanken, Projektarbeit, MVC und allgemein Webapplikationen.<br><br> 
+Als Grundlage bauten wir eine statische Website nach unseren Mockups, was zu Beginn sicher der richtige
+Ansatz war. Nach und nach ersetzten wir statischen Inhalt mit dynamischem via unserer Datenbank. Userdaten, die wir im 
+"Abstract" noch als grosse Herausforderung werteten, konnten wir schnell auswerten und verwenden. Review- oder Trackdaten
+waren anspruchsvoller anzusprechen und richtig zu verarbeiten. Mehrere Änderungen der Datenbankstruktur waren nötig um
+die richtigen Attribute am richtigen Ort anzuzeigen. Kleine Stolpersteine wie diese kosteten uns viel Zeit. Im Entspurt 
+entschieden wir uns daher für diverse User Stories als "Dropped Features" zu tagen, also auf diese für unseren aktuellen 
+Release zu verzichten. So gewannen wir Zeit für verschieden Validierungsarbeiten und Testing, anstatt noch mehr Features
+reinzupacken. Im Rückblick war das entscheidend um eine Webapplikation auf guten Niveau abgeben zu können. Der Fokus zum
+Schluss war auf der User Experience, eng verbunden mit zahlreichen Tests. <br><br> 
+#### Abschliessend sind wir stolz auf unser erstes realisierte Webapplikation. Die Zusammenarbeit war von Offenheit und Austausch geprägt und die Planung via Board auf Gitlab unterstützte unseren Projektalltag.
