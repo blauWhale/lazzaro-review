@@ -42,6 +42,11 @@
                             <a class="nav-link active" href="/review/create">Review Erstellen</a>
                         </li>
                         <?php } ?>
+                        <?php if (isset($_SESSION["IsLoggedIn"]) ) { ?>
+                            <li class="navbar-brand">
+                                <a class="nav-link active" href="/user/doLogout">Abmelden</a>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

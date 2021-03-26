@@ -47,6 +47,12 @@ class UserController
         exit();
     }
 
+    public function doLogout()
+    {
+        session_destroy();
+        header('Location: /');
+    }
+
     public function create()
     {
         $view = new View('user/create');
