@@ -53,21 +53,39 @@
 
                     <div class="list-group">
                         <h5>Genre</h5>
-                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">
-                            EDM
-                        </a>
-                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Pop</a>
-                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Hip
-                            Hop</a>
-                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Rock</a>
+                        <?php
+
+                        $oldFilters = "";
+                        foreach($_GET as $field=> $value){
+                            if($field === "searchGenre")
+                                continue;
+
+                            $oldFilters .=$field."=".$value."&";
+                        }
+
+                        foreach ($genres as $genre):
+                            ?>
+                            <a href="/?<?= $oldFilters ?>searchGenre=<?= $genre ?>" class="list-group-item list-group-item-action" name="genreFilter">
+                                <?= $genre ?>
+                            </a>
+                            <?php ?>
+                        <?php endforeach; ?>
+                        <br>
 
                         <h5>Jahr</h5>
-                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">
-                            2021
-                        </a>
-                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">2020</a>
-                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">2002</a>
-                        <a href="default/yearFilter" class="list-group-item list-group-item-action" name="yearFilter">1981</a>
+                        <?php
+                        $oldFilters = "";
+                        foreach($_GET as $field=> $value){
+                            if($field === "searchYear")
+                                continue;
+
+                            $oldFilters .=$field."=".$value."&";
+                        }
+                        foreach ($years as $year): ?>
+                            <a href="/?<?= $oldFilters ?>searchYear=<?= $year ?>" class="list-group-item list-group-item-action" name="yearFilter">
+                                <?= $year ?>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
 
                 </div>

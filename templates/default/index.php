@@ -20,12 +20,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-8 d-flex flex-wrap justify-content-between">
                 <?php foreach ($reviews['review'] as $review):
 
                     $detailLink = "/review?id=" . $review['id'] ;
                     ?>
-                        <div class="card">
+                        <div class="card p-2">
                             <div class="card-body">
                                 <a href="<?= $detailLink ?>">
                                 <h5 class="card-title">
@@ -62,10 +62,10 @@
                             $oldFilters .=$field."=".$value."&";
                         }
 
-                        foreach ($reviews['review'] as $review):
+                        foreach ($genres as $genre):
                             ?>
-                            <a href="/?<?= $oldFilters ?>searchGenre=<?= $reviews['track'][$review['track_id']]['genre'] ?>" class="list-group-item list-group-item-action" name="genreFilter">
-                                <?= $reviews['track'][$review['track_id']]['genre'] ?>
+                            <a href="/?<?= $oldFilters ?>searchGenre=<?= $genre ?>" class="list-group-item list-group-item-action" name="genreFilter">
+                                <?= $genre ?>
                             </a>
                         <?php ?>
                         <?php endforeach; ?>
@@ -80,9 +80,9 @@
 
                             $oldFilters .=$field."=".$value."&";
                         }
-                        foreach ($reviews['review'] as $review): ?>
-                            <a href="/?<?= $oldFilters ?>searchYear=<?= $reviews['track'][$review['track_id']]['release'] ?>" class="list-group-item list-group-item-action" name="yearFilter">
-                                <?= $reviews['track'][$review['track_id']]['release'] ?>
+                        foreach ($years as $year): ?>
+                            <a href="/?<?= $oldFilters ?>searchYear=<?= $year ?>" class="list-group-item list-group-item-action" name="yearFilter">
+                                <?= $year ?>
                             </a>
                         <?php endforeach; ?>
                     </div>
