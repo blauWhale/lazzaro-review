@@ -29,6 +29,8 @@ class ReviewController
         $view->review = $reviewRepository->readById($id);
         $view->comments = $commentRepository->readAllByReviewId(100,$id);
         $view->track = $trackRepository->readById($view->review->track_id);
+        $view->genres = $trackRepository->readAllBySelector(100,'genre');
+        $view->years = $trackRepository->readAllBySelector(100,'release_year');
         $view->display();
     }
 

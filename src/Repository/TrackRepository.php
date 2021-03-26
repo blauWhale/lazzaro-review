@@ -105,9 +105,15 @@ class TrackRepository
         $connection->close();
     }
 
-    public function readAllBySelector($max = 100, $selector="*")
+    public function readAllBySelector($max = 100, $selector)
     {
-        $query = "SELECT $selector FROM {$this->tableName} LIMIT 0, $max";
+
+        if(empty($selector)){
+            return array();
+        }
+
+
+        $query = "SELECT DISTINCT $selector FROM {$this->tableName} LIMIT 0, $max";
 
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
@@ -124,8 +130,8 @@ class TrackRepository
 
         // Datensätze aus dem Resultat holen und in das Array $rows speichern
         $rows = array();
-        while ($row = $result->fetch_object()) {
-            $rows[] = $row;
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row[$selector];
         }
 
         return $rows;
