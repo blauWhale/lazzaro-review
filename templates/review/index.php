@@ -33,21 +33,12 @@
                             <?php } ?>
                         </div>
                         <hr>
-                        <img src="images/boston_albumcover.png"
+                        <img src="<?= $track->image_path; ?>"
                              alt="..." width="250px" height="250px">
                         <p class="card-text"><?= $review->content; ?></p>
 
 
                         <p class"Rating"> Lazzaro Rating: <?= $review->rating; ?>/10</p>
-
-                        <button class="btn btn-outline-secondary" type="button">Button</button>
-                        <button class="btn btn-outline-secondary" type="button">Button</button>
-                        <button class="btn btn-outline-secondary" type="button">Button</button>
-                        <button class="btn btn-outline-secondary" type="button">Button</button>
-
-                        <a id="sharebutton" class="btn" href="" role="button">Share</a>
-
-                        <p class="tags">Tags: Rock</p>
 
                     </div>
                 </div>
@@ -55,8 +46,8 @@
                 <div class="col-md-3">
                     <div class="col-md-3">
                         <form action="/default/search" method="post">
-                                <input class="form-control" list="datalistOptions" name="search"
-                                       placeholder="Type to search...">
+                            <input class="form-control" list="datalistOptions" name="search"
+                                   placeholder="Type to search...">
                         </form>
                     </div>
 
@@ -66,7 +57,8 @@
                             EDM
                         </a>
                         <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Pop</a>
-                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Hip Hop</a>
+                        <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Hip
+                            Hop</a>
                         <a href="default/genreFilter" class="list-group-item list-group-item-action" name="genreFilter">Rock</a>
 
                         <h5>Jahr</h5>
@@ -80,15 +72,15 @@
 
                 </div>
             </div>
-            <h2>Kommentare (<?= $i=count($review->comments) ?>)</h2>
+            <h2>Kommentare (<?= $i = count($comments['comment']) ?>)</h2>
 
-            <?php foreach ($review->comments as $comment): ?>
+            <?php foreach ($comments['comment'] as $comment): ?>
                 <div class="row">
                     <div class="col-md-8">
-                        <h5><?= $comment->user_id; ?></h5>
-                        <p class="card-text"><small class="text-muted"><?= $comment->date; ?></small>
+                        <h5><?= $comments['user'][$comment['user_id']]['username']; ?></h5>
+                        <p class="card-text"><small class="text-muted"><?= $comment['date']; ?></small>
                         </p>
-                        <p><?= $comment->content; ?></p>
+                        <p><?= $comment['content']; ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -100,7 +92,9 @@
                                   id="floatingTextarea" name="comment_content"></textarea>
                         </div>
                         <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
-                        <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">
+                        <?php if (isset($_SESSION["user"])) { ?>
+                            <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">
+                        <?php } ?>
                         <button name="doComment" id="commment" type="submit" class="btn">Kommentieren</button>
                     </form>
                 </div>

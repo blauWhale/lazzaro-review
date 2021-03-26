@@ -48,7 +48,8 @@ class ReviewRepository extends Repository
                     'producer_name' => $row->producer_name,
                     'artist_name' => $row->artist_name,
                     'genre' => $row->genre,
-                    'release' => $row->release_year
+                    'release' => $row->release_year,
+                    'image_path' => $row->image_path
 
                 );
             }

@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `lazzarodb`.`track` (
     `artist_name` VARCHAR(64) NOT NULL,
     `genre` VARCHAR(50) NOT NULL,
     `release_year` DATE NOT NULL,
+    `image_path` VARCHAR(128) NOT NULL DEFAULT '/images/boston_albumcover.png',
     PRIMARY KEY (`id`))
     ENGINE = InnoDB;
 

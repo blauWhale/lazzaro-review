@@ -39,7 +39,7 @@
                             </div>
                             <a href="<?= $detailLink ?>">
 
-                            <img src="images/boston_albumcover.png"
+                            <img src="<?= $reviews['track'][$review['track_id']]['image_path'];?>"
                                  class="card-img-bottom" alt="...">
                             </a>
                             <div class="card-body">

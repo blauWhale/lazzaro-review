@@ -16,7 +16,6 @@ class ReviewController
         $reviewRepository = new ReviewRepository();
         $trackRepository = new TrackRepository();
         $commentRepository = new CommentRepository();
-        $userRepository = new UserRepository();
 
         if(!isset($_GET['id']) || !$_GET['id'] || !is_numeric($_GET['id'])){
             header("Location: /");
@@ -28,7 +27,7 @@ class ReviewController
         $view->title = 'Reviews';
         $view->heading = 'Reviews';
         $view->review = $reviewRepository->readById($id);
-        $view->review->comments = $commentRepository->readAllByReviewId($id);
+        $view->comments = $commentRepository->readAllByReviewId(100,$id);
         $view->track = $trackRepository->readById($view->review->track_id);
         $view->display();
     }
