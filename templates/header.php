@@ -14,16 +14,15 @@
   </head>
   <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="header">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/default">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark " id="header">
+            <div class="container">
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav mx-auto">
                         <li class="navbar-brand">
-                            <a class="nav-link active" aria-current="page" href="/review">Reviews</a>
+                            <a class="nav-link active" aria-current="page" href="/review">Home</a>
+                        </li>
+                        <li class="navbar-brand">
+                            <a class="nav-link active" aria-current="page" href="/review">Review</a>
                         </li>
                         <li class="navbar-brand">
                             <a class="nav-link active" href="/contact">Kontakt</a>
