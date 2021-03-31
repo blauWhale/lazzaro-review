@@ -45,11 +45,13 @@
 
                 <div class="col-md-3">
                     <div class="col-md-3">
+                        <br>
                         <form action="/" method="get" onsubmit="return validateSearch()" name="searchbar">
-                            <input class="form-control"  list="datalistOptions" name="searchContent"
+                            <input id="searchbar-review" class="form-control"  list="datalistOptions" name="searchContent"
                                    placeholder="Nach Inhalten suchen...">
                         </form>
                     </div>
+                    <br>
 
                     <div class="list-group">
                         <h5>Genre</h5>

@@ -20,7 +20,7 @@ class UserController
     public function login()
     {
         $view = new View('user/login');
-        $view->title = 'Benutzer erstellen';
+        $view->title = 'Login';
         $view->heading = 'Log dich ein';
         $view->display();
     }
