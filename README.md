@@ -35,6 +35,20 @@
 ### ERM
 ![alt text](Admin/ERM/erm.png "ERM")
 
+### Unsere Systemkonfiguration
+
+Version 0.1 auf dem Gitlab: <br>
+- OS: Windows 10 Home 1909	<br>
+- Browser: Google Chrome  Version 89.0.4389.114 <br>
+- Server: <br>
+- Lokaler Apahce Server<br>
+-- Apache Version 2.4.46 <br>
+-- PHP Version 8.0.2<br>
+- HTML und CSS für statische Webiste
+- Javascript für Clientseitige Validation
+- SQL Sprache: Maria DB
+
+
 ### Fazit
 Unser Projekt "Lazzaro Review" war sehr fordernd und wir (Samuel Hajnik und Raphael Blaauw) konnten viele Neues 
 lernen zum Thema PHP, Datenbanken, Projektarbeit, MVC und allgemein Webapplikationen.<br><br> 
