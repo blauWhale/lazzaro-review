@@ -11,7 +11,7 @@
 - 16 - 60 Jahre alt<br>
 - Deutschsprechend<br>
 - Deutschland, Schweiz, Österreich und andere deutschsprechenden Regionen <br>
-- Technisch versiert sein <br>
+- Kann einen Computer problemlos bedienen <br>
 - Musikliebhaber <br>
 - Detailversessen <br>
 
@@ -26,14 +26,14 @@
 
 
 ### Farbkonzept
-- Farbpalette:<br>![alt text](Admin/colorpallet.png )
+- Farbpalette:<br>![alt text](Admin/Mockup/colorpallet.png )
 - Schrift: Roboto und Domine(Logo)
 - Das Violet soll einen ruhigen und sanften Eindruck hinterlassen. <br>
 - Die Review-Cards stechen mit ihrer weisen Fläche und schwarzem Rand aus. <br> 
 - Optionales wird dem Dunkelgrau in den Hintergrund geschoben.
 
 ### ERM
-![alt text](Admin/erm.png "ERM")
+![alt text](Admin/ERM/erm.png "ERM")
 
 ### Fazit
 Unser Projekt "Lazzaro Review" war sehr fordernd und wir (Samuel Hajnik und Raphael Blaauw) konnten viele Neues 
@@ -42,9 +42,9 @@ Als Grundlage bauten wir eine statische Website nach unseren Mockups, was zu Beg
 Ansatz war. Nach und nach ersetzten wir statischen Inhalt mit dynamischem via unserer Datenbank. Userdaten, die wir im 
 "Abstract" noch als grosse Herausforderung werteten, konnten wir schnell auswerten und verwenden. Review- oder Trackdaten
 waren anspruchsvoller anzusprechen und richtig zu verarbeiten. Mehrere Änderungen der Datenbankstruktur waren nötig um
-die richtigen Attribute am richtigen Ort anzuzeigen. Kleine Stolpersteine wie diese kosteten uns viel Zeit. Im Entspurt 
+die richtigen Attribute am richtigen Ort anzuzeigen. Kleine Stolpersteine wie diese kosteten uns viel Zeit. Im Endspurt 
 entschieden wir uns daher für diverse User Stories als "Dropped Features" zu tagen, also auf diese für unseren aktuellen 
 Release zu verzichten. So gewannen wir Zeit für verschieden Validierungsarbeiten und Testing, anstatt noch mehr Features
 reinzupacken. Im Rückblick war das entscheidend um eine Webapplikation auf guten Niveau abgeben zu können. Der Fokus zum
 Schluss war auf der User Experience, eng verbunden mit zahlreichen Tests. <br><br> 
-#### Abschliessend sind wir stolz auf unser erstes realisierte Webapplikation. Die Zusammenarbeit war von Offenheit und Austausch geprägt und die Planung via Board auf Gitlab unterstützte unseren Projektalltag.
+#### Abschliessend sind wir stolz auf unser Erstes realisierte Webapplikation. Die Zusammenarbeit war von Offenheit und Austausch geprägt und die Planung via Board auf Gitlab unterstützte unseren Projektalltag.

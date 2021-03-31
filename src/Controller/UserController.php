@@ -94,6 +94,7 @@ class UserController
                 header('Location: default/index');
             }
 
+            header('Location: /user/login');
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
