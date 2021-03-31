@@ -16,7 +16,7 @@ class ContactController{
         $view->display();
     }
 
-    public function sendForm(){
+    public function sendForm(){ //Ability to Connection to Server still in progress, not functional yet
 
         if (isset($_POST["sendMail"])) {
 

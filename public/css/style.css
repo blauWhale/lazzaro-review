@@ -4,7 +4,6 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
 
@@ -16,7 +15,7 @@ body > .container {
   position: fixed;
   top: 0;
   width: 100%;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .site-footer
@@ -53,18 +52,9 @@ body > .container {
   margin-bottom: -100px;
 }
 
-.logo-footer{
-  text-align: right;
-}
-
-.container>.row>div{
-    margin-right: 75px;
-}
-
-#footer-content{
-  padding-top: 75px;
-}
 
 #searchbar{
   margin-top: 25px;
 }
+
+

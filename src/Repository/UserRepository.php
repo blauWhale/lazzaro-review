@@ -13,8 +13,6 @@ class UserRepository extends Repository
     {
         $query = "SELECT * FROM {$this->tableName} WHERE email=?";
 
-        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
-        // und die Parameter "binden"
         $connection = ConnectionHandler::getConnection();
         $statement = $connection->prepare($query);
         $statement->bind_param('s', $email);
@@ -23,10 +21,9 @@ class UserRepository extends Repository
             throw new Exception($connection->error);
         }
 
-        // Das Statement absetzen
+
         $statement->execute();
 
-        // Resultat der Abfrage holen
         $result = $statement->get_result();
         if($result->num_rows > 0){
             $user = $result->fetch_object();
@@ -54,7 +51,6 @@ class UserRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
         $rows = array();
         while ($row = $result->fetch_object()) {
             $rows[] = $row;
@@ -80,8 +76,8 @@ class UserRepository extends Repository
             } else {
 
                 if ($statement = $connection->prepare($query2)) {
-                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                    $statement->bind_param('sss', $_POST['username'], $password, $_POST['email']);
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+                    $statement->bind_param('sss', $username, $password, $email);
                     $statement->execute();
                     echo 'Sie haben sich registriert, sie können sich jetzt einloggen!';
                 }

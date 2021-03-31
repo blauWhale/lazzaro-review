@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card">
+                    <div class="card" id="cardspace">
                         <div class="card-body">
                             <h5 class="card-title"><?= $track->trackname; ?></h5>
                             <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>

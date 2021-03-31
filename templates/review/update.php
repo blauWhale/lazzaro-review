@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card">
+                    <div class="card" id="cardspace">
                         <div class="card-body">
                             <h5 class="card-title"><?= $track->trackname; ?></h5>
                             <p class="card-text"><small class="text-muted">Erschienen: <?= $track->release_year; ?>
@@ -18,14 +18,15 @@
                             </p>
                         </div>
                         <hr>
-                        <img src="images/boston_albumcover.png"
-                             alt="..." width="250px" height="250px">
+                        <img src="<?= $track->image_path; ?>"
+                             alt="Albumcover" width="250px" height="250px">
 
                         <h3>Dein Änderungen</h3>
 
                         <h4>Gib hier den neuen Reviewtext ein:</h4>
                         <br>
-                        <form action="/review/doUpdate" onsubmit="return validateReviewUpdater()" method="post" name="reviewUpdater">
+                        <form action="/review/doUpdate" onsubmit="return validateReviewUpdater()" method="post"
+                              name="reviewUpdater">
                             <div class="form-group">
                                 <label for="content" class="form-label">content</label>
                                 <textarea class="form-control" id="content" name="content" rows="4"></textarea>
@@ -39,7 +40,8 @@
                             </div>
                             <input type="hidden" id="review_id" name="review_id" value="<?= $review->id; ?>">
                             <br>
-                            <button type="submit" class="btn btn-primary" name="doUpdate_review">Review anpassen</button>
+                            <button type="submit" class="btn btn-primary" name="doUpdate_review">Review anpassen
+                            </button>
                         </form>
 
 
@@ -48,7 +50,7 @@
 
                 <div class="col-md-3">
                     <form action="/" method="get" onsubmit="return validateSearch()" name="searchValidator">
-                        <input class="form-control"  list="datalistOptions" name="searchContent"
+                        <input class="form-control" list="datalistOptions" name="searchContent"
                                placeholder="Type to search...">
                     </form>
 
@@ -79,4 +81,3 @@
 
 </main>
 
-</div>

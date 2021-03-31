@@ -44,7 +44,6 @@ class CommentRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
         $data = array(
             'comment' => array(),
             'user' => array()

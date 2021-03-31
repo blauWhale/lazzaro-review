@@ -1,6 +1,5 @@
     </main>
 
-    <!-- Site footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
@@ -15,7 +14,7 @@
 
                 <div class="col-xs-6 col-md-3">
                     <ul>
-                        <li><a href="/default"> <img src="/images/lazzaro_logo.png" class="logo-footer" alt="Logo"> </a></li>
+                        <li><a href="/default"> <img src="/images/lazzaroLogo.png" class="logo-footer" alt="Logo"> </a></li>
                     </ul>
                 </div>
         </div>

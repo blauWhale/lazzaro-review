@@ -28,24 +28,6 @@ function validateFooterSearch(){
     }
 }
 
-function validateReviewCreator(){ //TODO Validation JS
-    var content = document.forms["reviewCreator"]["content"].value;
-    var rating = document.forms["reviewCreator"]["rating"].value;
-    var trackOption = document.forms["reviewCreator"]["trackOption"].value;
-    if (rating == "" || rating.isInteger() || rating<0 && rating>11) {
-        alert("Überprüfe das Ratingfeld");
-        return false;
-    }
-    if (content == "") {
-        alert("Bitte alle Felder ausfüllen.");
-        return false;
-    }
-    if (trackOption == "" || trackOption<0 && trackOption>100 ) {
-        alert("Bitte ein Lied auswählen.");
-        return false;
-    }
-
-}
 
 function validateUserCreator(){
     var username = document.forms["userCreator"]["username"].value;

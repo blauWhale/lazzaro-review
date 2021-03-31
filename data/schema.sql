@@ -114,8 +114,9 @@ grant insert, update, delete, select on lazzarodb.* to 'lazzarodb_user'@'%';
 INSERT INTO `lazzarodb`.`user` (`id`, `email`, `username`, `password`, `moderator`) VALUES ('1', 'raphael@blaauw.ch', 'raphael', '$2y$10$z0H8Y7VO5OQZEc0G8cApEO5mlibhN1F9USxONUsC.vcoDM9QoQEuO', '1');
 INSERT INTO `lazzarodb`.`user` (`id`, `email`, `username`, `password`, `moderator`) VALUES ('2', 'samuel@hajnik.ch', 'samuel', '$2y$10$z0H8Y7VO5OQZEc0G8cApEO5mlibhN1F9USxONUsC.vcoDM9QoQEuO', '1');
 
-INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`) VALUES ('1', 'more than a feeling', 'boston', 'boston', 'rock', '1981-01-01');
-INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`) VALUES ('2', 'another track', 'queen', 'queen', 'rock', '1982-01-01');
+INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`) VALUES ('1', 'Boston - More Than A Feeling', 'boston', 'boston', 'Rock', '1981-01-01');
+INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`, `image_path`) VALUES ('2', 'Queen - Pop Song', 'queen', 'queen', 'Pop', '1984-01-01', '/images/queen_albumcover.jpg');
+INSERT INTO `lazzarodb`.`track` (`id`, `trackname`, `producer_name`, `artist_name`, `genre`, `release_year`, `image_path`) VALUES ('3', 'Polo Hofer - Alperose', 'Polo Hofer', 'Polo Hofer', 'Rock', '1991-01-01', '/images/polohofer_albumcover.jpg');
 
 INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('1', '7', 'Super Sach da mit dem Album', '1', '2');
 INSERT INTO `lazzarodb`.`review` (`id`, `rating`, `content`, `user_id`, `track_id`) VALUES ('2', '3', 'Echt ned eso guet', '2', '2');

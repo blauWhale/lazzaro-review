@@ -22,7 +22,6 @@
             <div class="row">
                 <div class="col-md-8">
                     <form action="/contact/sendForm" onsubmit="return validateContact()" method="post" name="contactValidator">
-                        <div class="card">
                             <div class="card-body" id="kontaktformular">
                                 <h5 class="card-title">Unser Kontaktformular:</h5>
                                 <input class="form-control" list="datalistOptions" name="vorname"
@@ -40,7 +39,6 @@
                                 <textarea name="msg" cols="30" rows="5" class="form-control" style="background-color: white;" placeholder="Deine Nachricht:" required></textarea>
                             </div>
                             <button type="submit" name="sendMail" class="btn btn-outline-primary">Absenden</button>
-                        </div>
                     </form>
                 </div>
 

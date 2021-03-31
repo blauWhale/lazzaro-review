@@ -27,7 +27,6 @@ class ReviewRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
         $data = array(
             'track' => array(),
             'review' => array()
@@ -120,7 +119,6 @@ class ReviewRepository extends Repository
             throw new Exception($statement->error);
         }
 
-        // Datensätze aus dem Resultat holen und in das Array $rows speichern
         $data = array(
             'track' => array(),
             'review' => array()

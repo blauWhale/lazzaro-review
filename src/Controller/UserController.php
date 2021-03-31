@@ -13,8 +13,7 @@ class UserController
     public function index()
     {
 
-        $view = new View('default/index');
-        $view->display();
+        header('Location: /');
     }
 
     public function login()
@@ -27,10 +26,21 @@ class UserController
 
     public function doLogin()
     {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $userRepository = new UserRepository();
-        $user = $userRepository->login($email, $password);
+        if (isset($_POST['loginSend'])){
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+
+            if (!isset($_POST['password']) || !isset($_POST['email'])) {
+                header('Location: /user/login');
+            }
+            if ( empty($_POST['password']) || empty($_POST['email'])) {
+                $_SESSION["loginFailed"] = true;
+                header('Location: /user/login');
+            }
+            $userRepository = new UserRepository();
+            $user = $userRepository->login($email, $password);
+        }
+
 
         if (isset($user)) {
             $_SESSION["IsLoggedIn"] = true;
@@ -97,16 +107,7 @@ class UserController
             header('Location: /user/login');
         }
 
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
         header('Location: /user/create');
     }
 
-    public function delete()
-    {
-        //$userRepository = new UserRepository();
-        //$userRepository->deleteById($_GET['id']);
-
-        // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /user');
-    }
 }

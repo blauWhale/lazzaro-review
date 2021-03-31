@@ -1,7 +1,7 @@
 <div class="row">
-    <form action="/review/doCreate" onsubmit="return validateReviewCreator()" method="post" class="col-6" name="reviewCreator">
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="trackOption">
-            <option selected>Choose an existing Track</option>
+    <form action="/review/doCreate" method="post" class="col-6" name="reviewCreator">
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="trackOption" required>
+            <option disabled selected value="">-- Bitte wählen Sie einen Track --</option>
             <?php foreach ($tracks as $track):?>
                 <option value="<?= $track->id ?>"><?= $track->trackname; ?></option>
 
@@ -12,12 +12,12 @@
 
         <div class="form-group">
             <label for="rating">Rating von 1-10</label>
-            <input id="rating" name="rating" type="text" class="form-control">
+            <input id="rating" name="rating" type="number" class="form-control" min="1" max="10" required>
         </div>
 
         <div class="form-group">
             <label for="content" class="form-label">Schreib hier dein Review:</label>
-            <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+            <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
         </div>
 
         <input type="hidden" id="user_id" name="user_id" value="<?= $_SESSION["user"]->id; ?>">
